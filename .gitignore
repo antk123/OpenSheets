@@ -8,6 +8,13 @@ dist/
 dist-ssr/
 *.local
 
+# Old deploy snapshots
+deploy/
+fresh/
+
+# Generated reports
+app/lighthouse-report*.json
+
 # Logs
 logs/
 *.log
