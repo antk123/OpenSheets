@@ -70,6 +70,23 @@ Cloudflare Pages custom domains work best when Cloudflare manages your DNS.
 
 When an editor saves a guide in the Tina admin, TinaCloud commits the change to the `main` branch on GitHub. Cloudflare Pages will detect the push and rebuild the site automatically.
 
+## Troubleshooting
+
+### `/admin` shows the homepage
+
+This happens when the Tina admin files were not built. Make sure:
+
+1. Cloudflare Pages is building from the **repo root** (`/`), not `app/`.
+2. The build command is `npm run build`.
+3. `TINA_TOKEN` is set and valid.
+4. Trigger a new deployment.
+
+If `tinacms build` does not run, `admin/index.html` is never created, and Cloudflare Pages falls back to serving `index.html` for missing routes.
+
+### `/some-missing-page` shows the homepage
+
+The site now includes a `404.html`, so unknown paths should show a 404 page. If you still see the homepage, purge the Cloudflare cache and redeploy.
+
 ## Notes
 
 - The `TINA_TOKEN` should be kept secret in the Cloudflare Pages dashboard.
