@@ -52,3 +52,4 @@ lerna-debug.log*
 
 # Archives (imports / backups)
 *.zip
+.venv/
