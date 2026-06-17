@@ -21,10 +21,11 @@ export default defineConfig({
     process.env.NETLIFY_BRANCH ||
     'main',
 
+  // Client ID is public and safe to commit. Token must stay secret.
   clientId:
     process.env.NEXT_PUBLIC_TINA_CLIENT_ID ||
     process.env.PUBLIC_TINA_CLIENT_ID ||
-    null,
+    'e239f708-4478-4359-9814-203eea8957fa',
   token: process.env.TINA_TOKEN || null,
 
   build: {
