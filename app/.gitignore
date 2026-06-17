@@ -15,6 +15,7 @@ dist-ssr
 .env.local
 .env.*.local
 tina/__generated__
+.astro
 
 # Editor directories and files
 .vscode/*
