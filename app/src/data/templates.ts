@@ -175,7 +175,7 @@ export const templates: SpreadsheetTemplate[] = [
       'Sequential invoice numbering',
       'Payment terms & bank details',
     ],
-    fileName: 'UK_VAT_Invoice_Template.xlsx',
+    fileName: 'Invoice_Template.xlsx',
     sheetName: 'Invoice',
   },
   {
@@ -196,7 +196,7 @@ export const templates: SpreadsheetTemplate[] = [
       'Monthly and annual summaries',
       'Flags disallowable items',
     ],
-    fileName: 'Business_Expense_Tracker.xlsx',
+    fileName: 'Expense_Tracker.xlsx',
     sheetName: 'Expenses',
   },
   {
@@ -238,7 +238,7 @@ export const templates: SpreadsheetTemplate[] = [
       'Auto-balanced verification',
       'Year-end comparison',
     ],
-    fileName: 'Balance_Sheet.xlsx',
+    fileName: 'Balance_Sheet_Template.xlsx',
     sheetName: 'Balance Sheet',
   },
   {
@@ -259,7 +259,7 @@ export const templates: SpreadsheetTemplate[] = [
       'Cash shortfall warnings',
       'Adjustable assumptions',
     ],
-    fileName: 'Budget_Forecast_12_Month.xlsx',
+    fileName: 'Budget_Forecast_12Month.xlsx',
     sheetName: 'Budget',
   },
   {
@@ -365,7 +365,7 @@ export const templates: SpreadsheetTemplate[] = [
       'Total receivables dashboard',
       'Notes for chase calls',
     ],
-    fileName: 'Accounts_Receivable_Ledger.xlsx',
+    fileName: 'Accounts_Receivable.xlsx',
     sheetName: 'AR Ledger',
   },
   {
@@ -386,7 +386,7 @@ export const templates: SpreadsheetTemplate[] = [
       'Total payables dashboard',
       'Credit terms tracking',
     ],
-    fileName: 'Accounts_Payable_Ledger.xlsx',
+    fileName: 'Accounts_Payable.xlsx',
     sheetName: 'AP Ledger',
   },
 ];

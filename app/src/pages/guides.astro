@@ -1,0 +1,29 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import GuideGrid from '@/components/GuideGrid';
+
+const title = 'Free UK Bookkeeping & Tax Guides | Open Sheets';
+const description = 'Plain-English guides to UK bookkeeping, tax, VAT, Self Assessment, Making Tax Digital and business expenses. Written for small business owners.';
+---
+
+<Layout title={title} description={description}>
+  <section class="bg-white py-20 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-sky-100 text-sky-700 mb-4">Free Guides</span>
+        <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+          Plain-English Guides to<br />UK Business Finance
+        </h1>
+        <p class="text-lg text-slate-500 leading-relaxed max-w-2xl">
+          Jargon-free guides written for real business owners. Learn about bookkeeping, tax, VAT, Making Tax Digital, and more. No accounting degree needed.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <GuideGrid client:load />
+    </div>
+  </section>
+</Layout>

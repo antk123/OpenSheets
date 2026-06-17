@@ -1,0 +1,59 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import TemplateModal from '@/components/TemplateModal';
+import { templates } from '@/data/templates';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'All Free Bookkeeping Templates | Open Sheets';
+const description = 'Browse 16 free UK bookkeeping spreadsheet templates for sole traders, landlords and small businesses. Cash books, VAT, mileage logs, P&L and more.';
+
+const softwareAppSchemas = templates.map((t) => ({
+  '@type': 'SoftwareApplication',
+  name: t.name,
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Excel, Google Sheets, LibreOffice',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'GBP',
+  },
+  url: `${siteUrl}/templates/${t.id}`,
+  description: t.description,
+}));
+---
+
+<Layout title={title} description={description} jsonLd={softwareAppSchemas}>
+  <section class="bg-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">All Templates</h1>
+      <p class="text-lg text-slate-500 max-w-2xl">
+        16 free, UK-focused bookkeeping spreadsheets for every type of small business. Download any or all — no email, no signup required.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-12 min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <TemplateModal showFilters={true} client:load />
+    </div>
+  </section>
+
+  <section class="py-16 bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">Need Them All?</h2>
+      <p class="text-slate-600 mb-8 max-w-xl mx-auto">
+        Download all 16 templates one by one, or start with the essentials. Each template works independently — pick what you need.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        {templates.filter((t) => t.isPopular).map((t) => (
+          <a
+            href={`/templates/${t.id}`}
+            class="border border-slate-200 text-slate-700 hover:bg-slate-50 px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+          >
+            {t.shortName}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
