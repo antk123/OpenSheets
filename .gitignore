@@ -24,6 +24,11 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Secrets
+.env
+.env.local
+.env.*.local
+
 # Editor / OS
 .vscode/*
 !.vscode/extensions.json
