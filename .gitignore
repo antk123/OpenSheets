@@ -8,6 +8,13 @@ dist/
 dist-ssr/
 *.local
 
+# Generated
+.astro
+tina/__generated__
+app/tina/__generated__
+app/public/admin/assets
+app/public/admin/index.html
+
 # Old deploy snapshots
 deploy/
 fresh/

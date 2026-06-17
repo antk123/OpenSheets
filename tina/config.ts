@@ -1,5 +1,5 @@
 import { defineConfig } from 'tinacms';
-import { templates } from '../src/data/templates';
+import { templates } from '../app/src/data/templates';
 
 const categoryOptions = [
   { value: 'bookkeeping', label: 'Bookkeeping' },
@@ -30,13 +30,13 @@ export default defineConfig({
 
   build: {
     outputFolder: 'admin',
-    publicFolder: 'public',
+    publicFolder: 'app/public',
   },
 
   media: {
     tina: {
       mediaRoot: '',
-      publicFolder: 'public',
+      publicFolder: 'app/public',
     },
   },
 
@@ -45,7 +45,7 @@ export default defineConfig({
       {
         name: 'guide',
         label: 'Guides',
-        path: 'src/content/guides',
+        path: 'app/src/content/guides',
         format: 'mdx',
         fields: [
           {

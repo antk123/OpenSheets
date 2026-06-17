@@ -4,13 +4,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "tinacms dev -c \"astro dev\"",
+    "dev": "astro dev",
     "start": "astro dev",
-    "build": "tinacms build && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "tinacms-dev": "tinacms dev",
-    "tinacms-build": "tinacms build",
     "convert-guides": "node --experimental-strip-types scripts/convert-guides.ts",
     "generate-assets": "node --experimental-strip-types scripts/generate-assets.ts"
   },

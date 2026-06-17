@@ -1,30 +1,30 @@
 # Deploying to Cloudflare Pages
 
-This project is already set up for **Cloudflare Pages** static hosting. The Cloudflare Pages project `opensheets` has been created and will be available at `https://opensheets.pages.dev/` once the first deployment runs.
+This project is set up as an **npm workspace** with the Astro app in `app/` and the TinaCMS config at the repo root (`tina/`). Cloudflare Pages will build from the repository root.
 
 ## What was prepared
 
 - Cloudflare Pages project: **`opensheets`**
 - Production branch: **`main`**
-- `.nvmrc` set to Node `20` (required by Astro 5 and TinaCMS)
-- Build command already in `package.json`: `tinacms build && astro build`
-- Output directory: `dist`
+- `.nvmrc` at repo root → Node `20`
+- Root `package.json` with workspaces and build script: `tinacms build && npm run build -w app`
+- Output directory: `app/dist`
 
 ## 1. Connect the GitHub repository
 
-Cloudflare Pages needs to be linked to your GitHub repo through the dashboard.
-
-1. Go to the Cloudflare dashboard: https://dash.cloudflare.com
-2. Navigate to **Workers & Pages** → **Create application** → **Pages** → **Connect to Git**.
-3. Select the **`antk123/OpenSheets`** repository.
-4. Select the **`main`** branch.
-5. Use these build settings:
-   - **Project name:** `opensheets`
-   - **Production branch:** `main`
-   - **Build command:** `npm run build`
-   - **Build output directory:** `dist`
-   - **Root directory:** `app`
-6. Add these environment variables:
+1. Go to https://dash.cloudflare.com → **Workers & Pages**.
+2. Find the **`opensheets`** project and click it.
+3. Go to **Settings** → **Builds & deployments** → **Configure**.
+4. Connect to the **`antk123/OpenSheets`** repository and the **`main`** branch.
+5. Set:
+   | Setting | Value |
+   |---|---|
+   | **Project name** | `opensheets` |
+   | **Production branch** | `main` |
+   | **Build command** | `npm run build` |
+   | **Build output directory** | `app/dist` |
+   | **Root directory** | `/` (repo root) |
+6. Add environment variables:
    | Variable | Value |
    |---|---|
    | `NODE_VERSION` | `20` |
@@ -74,5 +74,5 @@ When an editor saves a guide in the Tina admin, TinaCloud commits the change to 
 
 - The `TINA_TOKEN` should be kept secret in the Cloudflare Pages dashboard.
 - `NEXT_PUBLIC_TINA_CLIENT_ID` is safe to expose; it is used by the browser admin UI.
-- If you do not want to use Cloudflare DNS, you can instead create a `CNAME` record at Namecheap pointing to `opensheets.pages.dev`. This works for `www`, but for an apex domain (`opensheets.co.uk` with no `www`) Cloudflare DNS is strongly recommended.
+- TinaCMS config must live at the repo root so TinaCloud can index branches. The Astro app remains in `app/`.
 - If you want server-side rendering (SSR) or Cloudflare Workers functions later, install the `@astrojs/cloudflare` adapter. For this static content site, Pages static hosting is the simplest choice.

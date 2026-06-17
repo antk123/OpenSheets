@@ -1,26 +1,31 @@
 # TinaCMS + TinaCloud Setup
 
-This site is now configured to use **TinaCMS** for editing the guides in `src/content/guides/`. The frontend remains a static Astro site and does not need TinaCloud to run — TinaCloud only powers the CMS admin and the content API.
+This site is now configured to use **TinaCMS** for editing the guides in `app/src/content/guides/`. The frontend remains a static Astro site and does not need TinaCloud to run — TinaCloud only powers the CMS admin and the content API.
+
+## Repo structure
+
+- `tina/` — TinaCMS schema config at the **repo root** (required by TinaCloud)
+- `app/` — Astro frontend app
+- Root `package.json` — npm workspace that runs `tinacms build` then the Astro build
 
 ## What was added
 
 - `tinacms` and `@tinacms/cli` dependencies
-- `tina/config.ts` — schema for the `guide` collection
-- `public/admin/index.html` — Tina admin entry point (generated)
+- `tina/config.ts` at repo root — schema for the `guide` collection
+- `app/public/admin/index.html` — Tina admin entry point (generated)
 - `tina/__generated__/*` — auto-generated GraphQL client (ignored by Git)
-- `.env.example` — placeholder environment variables
-- `package.json` scripts updated:
-  - `dev`: `tinacms dev -c "astro dev"`
-  - `build`: `tinacms build && astro build`
+- `app/.env.example` — placeholder environment variables
+- Root `package.json` with workspaces and build scripts
 
 ## Local development
 
+Run from the repo root:
+
 ```bash
-cd app
 npm run dev
 ```
 
-The site runs at `http://localhost:4321` and the Tina admin is available at `http://localhost:4321/admin/index.html`.
+This starts the Tina dev server and the Astro site. The site runs at `http://localhost:4321` and the Tina admin is at `http://localhost:4321/admin/index.html`.
 
 In local mode no TinaCloud credentials are needed; Tina uses the local filesystem backend.
 
@@ -47,7 +52,7 @@ If you are on a different branch, set the `GITHUB_BRANCH` environment variable o
 
 ### 3. Add environment variables
 
-Create a `.env.local` file for local testing:
+Create an `app/.env.local` file for local testing:
 
 ```env
 NEXT_PUBLIC_TINA_CLIENT_ID=your_client_id_here
@@ -64,30 +69,7 @@ For production, add the same variables to your hosting dashboard:
 
 ### 4. Deploy the site
 
-TinaCloud manages the CMS backend, but it does **not** host the frontend. Deploy the Astro site to any static host:
-
-#### Vercel (recommended)
-
-1. Import `https://github.com/antk123/OpenSheets`.
-2. Set the root directory to `app`.
-3. Add the environment variables above.
-4. Deploy.
-
-#### Netlify
-
-1. Connect the GitHub repo.
-2. Set the base directory to `app`.
-3. Build command: `npm run build`
-4. Publish directory: `dist`
-5. Add the environment variables above.
-
-#### Cloudflare Pages
-
-1. Connect the GitHub repo.
-2. Build command: `npm run build`
-3. Output directory: `dist`
-4. Root directory: `app`
-5. Add the environment variables above.
+TinaCloud manages the CMS backend, but it does **not** host the frontend. Deploy the Astro site to any static host. See `app/CLOUDFLARE.md` for Cloudflare Pages-specific steps.
 
 ### 5. Log in to the admin
 
@@ -125,6 +107,6 @@ This gives you a full editorial workflow with Git-based review.
 ## Important notes
 
 - Do **not** commit `.env` or `.env.local` files.
-- Do **not** commit `tina/__generated__` or `public/admin/index.html` — they are regenerated during `tinacms build`.
+- Do **not** commit `tina/__generated__/` or `app/public/admin/index.html` — they are regenerated during `tinacms build`.
 - The `id` field was removed from guide frontmatter because TinaCMS reserves it. The guide slug is now derived from the filename.
-- Template data (`src/data/templates.ts`) is still code-driven. If you want to edit templates through TinaCMS later, move them to a JSON/YAML collection.
+- Template data (`app/src/data/templates.ts`) is still code-driven. If you want to edit templates through TinaCMS later, move them to a JSON/YAML collection.

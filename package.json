@@ -1,0 +1,18 @@
+{
+  "name": "opensheets",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "workspaces": [
+    "app"
+  ],
+  "scripts": {
+    "dev": "tinacms dev -c \"npm run dev -w app\"",
+    "build": "tinacms build && npm run build -w app",
+    "preview": "npm run preview -w app",
+    "astro": "npm run astro -w app"
+  },
+  "devDependencies": {
+    "@tinacms/cli": "^2.5.1"
+  }
+}
