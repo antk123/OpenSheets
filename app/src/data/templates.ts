@@ -475,7 +475,7 @@ export const templates: SpreadsheetTemplate[] = [
       'Delivery instructions & signature',
       'A4 print-ready, one page',
     ],
-    fileName: 'Purchase_Order_Template_v2.xlsx',
+    fileName: 'Purchase_Order_Template_v4.xlsx',
     sheetName: 'Purchase Order',
     isNew: true,
   },
