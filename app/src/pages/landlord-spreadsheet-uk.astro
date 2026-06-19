@@ -1,0 +1,107 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'Landlord Spreadsheet UK — Free Rental Income & Expense Tracker';
+const description = 'Free landlord spreadsheet for UK property owners. Track rental income, expenses, mortgage interest, and Section 24 tax relief. HMRC-compliant. No signup.';
+const canonical = '/landlord-spreadsheet-uk';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: `${siteUrl}${canonical}`,
+};
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      <div class="inline-flex items-center gap-2 bg-amber-100 text-amber-700 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+        For UK Landlords
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-4">
+        Landlord Spreadsheet UK <span class="text-sky-700">(Free Download)</span>
+      </h1>
+      <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+        Track rental income, property expenses, and Section 24 mortgage relief with our free landlord spreadsheet. Built for UK tax rules. HMRC-ready categories.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Why UK Landlords Need a Proper Spreadsheet</h2>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            HMRC treats all your UK rental properties as a single "property business." You must report rental income and expenses on the SA105 Property pages of your Self Assessment. Good records aren't optional — they're your protection if HMRC opens an enquiry.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            Section 24 changed everything. Since April 2020, you can no longer deduct mortgage interest as an expense. Instead, you get a 20% tax credit. This makes tracking your actual mortgage interest critical — and a spreadsheet is the simplest way to do it.
+          </p>
+          <h3 class="text-lg font-semibold text-slate-900 mb-3">What to Track Per Property</h3>
+          <ul class="space-y-2 text-slate-600">
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Rent received (date, amount, tenant)</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Mortgage interest paid (for Section 24 credit)</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Repairs and maintenance</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Insurance, letting agent fees, ground rent</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Replacement of domestic items</li>
+          </ul>
+        </div>
+        <div class="bg-amber-50 rounded-xl p-6 border border-amber-200">
+          <h3 class="font-bold text-amber-900 mb-4">Get the Landlord Templates</h3>
+          <div class="space-y-3">
+            <a href="/templates/rental-property" class="flex items-center gap-3 bg-white rounded-lg p-3 border border-amber-100 hover:border-amber-300 hover:shadow-sm transition-all">
+              <div class="w-10 h-10 rounded-lg bg-amber-500 flex items-center justify-center text-white flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+              </div>
+              <div>
+                <p class="font-medium text-slate-900 text-sm">Rental Property Tracker</p>
+                <p class="text-xs text-slate-500">Income, expenses, Section 24 for 5 properties</p>
+              </div>
+            </a>
+            <a href="/templates/mtd-quarterly-property" class="flex items-center gap-3 bg-white rounded-lg p-3 border border-amber-100 hover:border-amber-300 hover:shadow-sm transition-all">
+              <div class="w-10 h-10 rounded-lg bg-purple-500 flex items-center justify-center text-white flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+              </div>
+              <div>
+                <p class="font-medium text-slate-900 text-sm">MTD Quarterly Property Income</p>
+                <p class="text-xs text-slate-500">Quarterly summaries for MTD ITSA</p>
+              </div>
+            </a>
+          </div>
+          <div class="mt-4 pt-4 border-t border-amber-200">
+            <p class="text-xs text-amber-700 mb-2"><strong>MTD for Landlords:</strong> If your gross property income is over £50,000, you must now submit quarterly digital updates from April 2026.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">Section 24: The Mortgage Interest Change</h2>
+      <div class="bg-white rounded-xl p-6 border border-slate-200 mb-8">
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Since April 2020, landlords can no longer deduct mortgage interest from rental income before paying tax. Instead, you receive a 20% tax credit on your mortgage interest.
+        </p>
+        <p class="text-slate-600 leading-relaxed">
+          <strong>Example:</strong> You receive £20,000 rent and pay £8,000 mortgage interest. Under the old rules, your taxable profit was £12,000. Under Section 24, your taxable profit is £20,000, and you get a £1,600 tax credit (20% of £8,000). If you're a higher-rate taxpayer, this costs you significantly more.
+        </p>
+      </div>
+      <p class="text-slate-600">Our Rental Property Tracker automatically calculates the Section 24 tax credit and shows you the net effect on your tax bill.</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-sky-700">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Get Your Free Landlord Spreadsheet</h2>
+      <p class="text-sky-100 mb-8 max-w-2xl mx-auto">Track rental income, expenses, and Section 24 relief — all in one place.</p>
+      <a href="/templates/rental-property" class="inline-flex items-center justify-center bg-white hover:bg-sky-50 text-sky-700 font-semibold px-8 py-3 rounded-lg transition-colors">
+        Download Free Template
+      </a>
+    </div>
+  </section>
+</Layout>

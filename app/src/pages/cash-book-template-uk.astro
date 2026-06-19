@@ -1,0 +1,97 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'Cash Book Template UK — Free Excel Download for Small Business';
+const description = 'Free cash book template for UK small businesses. Track income, expenses, and bank balance month by month. Auto-calculating. HMRC-ready. No signup.';
+const canonical = '/cash-book-template-uk';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: `${siteUrl}${canonical}`,
+};
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+        Essential Bookkeeping
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-4">
+        Cash Book Template UK <span class="text-sky-700">(Free Excel Download)</span>
+      </h1>
+      <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+        The simplest way to track your business income and expenses. Running balance, bank reconciliation, and profit summary — all automatic. Free, no signup.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">What Is a Cash Book?</h2>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            A cash book is the simplest form of bookkeeping. It's a running record of every penny that comes into and goes out of your business, with a running balance that tells you exactly where you stand.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            For most sole traders and small businesses, a cash book is all you need. HMRC accepts spreadsheet records. You don't need fancy software — you need consistency.
+          </p>
+          <h3 class="text-lg font-semibold text-slate-900 mb-3">What Our Template Does</h3>
+          <ul class="space-y-2 text-slate-600">
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Date, description, and category for every transaction</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Auto-calculating running balance</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Bank reconciliation check</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Monthly income and expense summaries</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>HMRC expense categories built-in</li>
+          </ul>
+        </div>
+        <div class="bg-emerald-50 rounded-xl p-6 border border-emerald-200">
+          <h3 class="font-bold text-emerald-900 mb-4">Get the Cash Book Template</h3>
+          <p class="text-sm text-emerald-800 mb-4">The foundation of good bookkeeping. Download and start tracking today.</p>
+          <a href="/templates/cash-book" class="w-full inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white font-medium px-6 py-3 rounded-lg transition-colors mb-3">
+            View Cash Book Template
+          </a>
+          <p class="text-xs text-emerald-600 text-center">Free. No email required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">How to Use Your Cash Book</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4 font-bold">1</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Record Transactions</h3>
+          <p class="text-sm text-slate-600">Every time money moves, log it. Date, description, amount, and category. Takes 30 seconds.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4 font-bold">2</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Check Your Balance</h3>
+          <p class="text-sm text-slate-600">The running balance updates automatically. Compare it to your bank statement monthly.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4 font-bold">3</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Summarise for Tax</h3>
+          <p class="text-sm text-slate-600">At year-end, your totals are ready for Self Assessment. Income, expenses, profit — all calculated.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-sky-700">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Download Your Free Cash Book</h2>
+      <p class="text-sky-100 mb-8 max-w-2xl mx-auto">The simplest way to stay on top of your business finances.</p>
+      <a href="/templates/cash-book" class="inline-flex items-center justify-center bg-white hover:bg-sky-50 text-sky-700 font-semibold px-8 py-3 rounded-lg transition-colors">
+        Get the Template
+      </a>
+    </div>
+  </section>
+</Layout>

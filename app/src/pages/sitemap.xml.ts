@@ -18,7 +18,10 @@ export async function GET() {
     '/free-bookkeeping-spreadsheet-templates-uk',
     '/sole-trader-spreadsheet-template-uk',
     '/vat-return-spreadsheet-template-uk',
+    '/landlord-spreadsheet-uk',
+    '/cash-book-template-uk',
     '/blog/mtd-for-income-tax-2026',
+    '/blog/self-assessment-guide-sole-traders',
     ...templates.map((t) => `/templates/${t.id}`),
     ...guides.map((g) => `/guides/${g.slug}`),
   ];

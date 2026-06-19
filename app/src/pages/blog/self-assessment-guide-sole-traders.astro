@@ -1,0 +1,188 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import FaqAccordion from '@/components/FaqAccordion.astro';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'Self Assessment Tax Return Guide for UK Sole Traders (2025/26)';
+const description = 'Complete guide to completing your UK Self Assessment tax return as a sole trader. What you need, what you can claim, deadlines, penalties, and how to pay less tax legally.';
+const canonical = '/blog/self-assessment-guide-sole-traders';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  author: { '@type': 'Organization', name: 'Open Sheets' },
+  publisher: { '@type': 'Organization', name: 'Open Sheets', logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.svg` } },
+  datePublished: '2026-06-20',
+  dateModified: '2026-06-20',
+  url: `${siteUrl}${canonical}`,
+};
+
+const faq = [
+  {
+    question: 'When is the Self Assessment deadline?',
+    answer: 'For paper returns: 31 October following the tax year end. For online returns: 31 January following the tax year end. For the 2025/26 tax year (ending 5 April 2026), the online deadline is 31 January 2027.',
+  },
+  {
+    question: 'What happens if I miss the deadline?',
+    answer: 'An immediate £100 fixed penalty. After 3 months late: £10/day up to £900. After 6 months: £300 or 5% of tax due (whichever is higher). After 12 months: another £300 or 5%. Interest also accrues on unpaid tax.',
+  },
+  {
+    question: 'What expenses can I claim as a sole trader?',
+    answer: 'Any cost incurred "wholly and exclusively" for business purposes. Common claims: office costs, travel, clothing/uniforms, staff costs, financial costs, marketing, training, subscriptions, and use of home as office. You cannot claim for personal expenses, client entertainment, or fines.',
+  },
+  {
+    question: 'Do I need an accountant to file Self Assessment?',
+    answer: "No. If your finances are straightforward, you can file yourself using HMRC's online service. However, an accountant can save you money by identifying claims you might miss, and they handle the admin. For complex situations (limited companies, multiple income sources, capital gains), an accountant is recommended.",
+  },
+  {
+    question: 'How do I pay my Self Assessment tax bill?',
+    answer: "Online via HMRC's website using debit card or bank transfer. You can also pay by Direct Debit, cheque, or at a bank. Payments on account (advance payments for next year) may be required if your tax bill is over £1,000.",
+  },
+];
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <header class="mb-10">
+      <div class="flex items-center gap-3 mb-4 flex-wrap">
+        <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-sky-100 text-sky-700">Self Assessment</span>
+        <span class="text-sm text-slate-500">20 June 2026</span>
+        <span class="text-sm text-slate-500">&middot; 15 min read</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-4">
+        Self Assessment Tax Return Guide for UK Sole Traders
+      </h1>
+      <p class="text-lg sm:text-xl text-slate-600 leading-relaxed">
+        Everything you need to know about completing your UK Self Assessment as a sole trader. Deadlines, allowable expenses, payments on account, and how to pay less tax — legally.
+      </p>
+    </header>
+
+    <div class="prose-content">
+      <div class="bg-amber-50 border border-amber-200 rounded-xl p-6 mb-10">
+        <h2 class="text-lg font-bold text-amber-900 mb-2">⚠️ Critical Deadlines for 2025/26</h2>
+        <ul class="space-y-2 text-amber-800 text-sm">
+          <li><strong>Tax year ends:</strong> 5 April 2026</li>
+          <li><strong>Paper return deadline:</strong> 31 October 2026</li>
+          <li><strong>Online return deadline:</strong> 31 January 2027</li>
+          <li><strong>Payment deadline:</strong> 31 January 2027</li>
+          <li><strong>Payments on account:</strong> 31 January 2027 and 31 July 2027</li>
+        </ul>
+      </div>
+
+      <h2>What Is Self Assessment?</h2>
+      <p>Self Assessment is HMRC's system for collecting Income Tax from people who are not taxed at source through PAYE. If you're self-employed (a sole trader), a landlord, or have other untaxed income, you must complete a Self Assessment tax return every year.</p>
+      <p>The tax return tells HMRC how much you earned, what expenses you had, and calculates how much tax and National Insurance you owe. You then pay the bill by the deadline.</p>
+
+      <h2>Who Needs to Complete a Self Assessment?</h2>
+      <p>You must register for Self Assessment if any of the following apply:</p>
+      <ul>
+        <li>You're self-employed as a sole trader and earned more than £1,000</li>
+        <li>You're a partner in a business partnership</li>
+        <li>You're a landlord with rental income over £2,500</li>
+        <li>You have income from savings, investments, or dividends over £10,000</li>
+        <li>You have foreign income</li>
+        <li>You need to claim certain tax reliefs</li>
+        <li>You or your partner earn over £50,000 and claim Child Benefit</li>
+      </ul>
+
+      <h2>The Self Assessment Process: Step by Step</h2>
+      <h3>Step 1: Register for Self Assessment</h3>
+      <p>If you've never filed before, register with HMRC online. You'll get a Unique Taxpayer Reference (UTR) number. <strong>Do this by 5 October</strong> in your business's second tax year — otherwise you face penalties even if you haven't earned anything yet.</p>
+
+      <h3>Step 2: Keep Records All Year</h3>
+      <p>HMRC requires you to keep records for 5 years. This means:</p>
+      <ul>
+        <li>All invoices and receipts for income</li>
+        <li>All receipts for business expenses</li>
+        <li>Bank statements showing business transactions</li>
+        <li>Mileage logs if you claim vehicle expenses</li>
+      </ul>
+      <p>A simple spreadsheet is perfectly acceptable. HMRC does not mandate fancy software — they mandate accurate records.</p>
+
+      <h3>Step 3: Complete Your Tax Return</h3>
+      <p>Log into your HMRC online account and complete the SA100 (main tax return) plus any supplementary pages:</p>
+      <ul>
+        <li><strong>SA103:</strong> Self-employment income and expenses</li>
+        <li><strong>SA105:</strong> Property income</li>
+        <li><strong>SA102:</strong> Employment income (if you also have a job)</li>
+        <li><strong>SA106:</strong> Foreign income</li>
+        <li><strong>SA108:</strong> Capital gains</li>
+      </ul>
+
+      <h3>Step 4: Pay Your Tax Bill</h3>
+      <p>Payment is due by 31 January after the tax year ends. If your tax bill is over £1,000, you'll also need to make "payments on account" — advance payments towards next year's bill.</p>
+      <ul>
+        <li><strong>First payment on account:</strong> 31 January (same date as your main bill)</li>
+        <li><strong>Second payment on account:</strong> 31 July</li>
+      </ul>
+      <p>Each payment on account is typically 50% of your previous year's tax bill. If your income drops, you can reduce your payments on account.</p>
+
+      <h2>What Expenses Can You Claim?</h2>
+      <p>The golden rule: expenses must be incurred <strong>wholly and exclusively</strong> for business purposes. Here's what most sole traders can claim:</p>
+      <table class="w-full text-sm border-collapse mb-6">
+        <thead>
+          <tr class="bg-slate-100">
+            <th class="text-left px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">Expense</th>
+            <th class="text-left px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">What You Can Claim</th>
+            <th class="text-left px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="px-4 py-3 border-b border-slate-100">Office costs</td><td class="px-4 py-3 border-b border-slate-100">Stationery, printing, software, phone</td><td class="px-4 py-3 border-b border-slate-100">If used for business</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100">Travel</td><td class="px-4 py-3 border-b border-slate-100">45p/mile first 10k miles, 25p after</td><td class="px-4 py-3 border-b border-slate-100">Commuting to regular workplace excluded</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100">Home office</td><td class="px-4 py-3 border-b border-slate-100">£6/week flat rate or actual costs</td><td class="px-4 py-3 border-b border-slate-100">Must be a dedicated workspace</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100">Clothing</td><td class="px-4 py-3 border-b border-slate-100">Uniforms, protective equipment</td><td class="px-4 py-3 border-b border-slate-100">Everyday clothing excluded</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100">Staff costs</td><td class="px-4 py-3 border-b border-slate-100">Salaries, subcontractors, agency fees</td><td class="px-4 py-3 border-b border-slate-100">Must be for business work</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100">Financial</td><td class="px-4 py-3 border-b border-slate-100">Bank charges, insurance, accountancy</td><td class="px-4 py-3 border-b border-slate-100">Fines and penalties excluded</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100">Marketing</td><td class="px-4 py-3 border-b border-slate-100">Website, ads, networking</td><td class="px-4 py-3 border-b border-slate-100">Client entertainment excluded</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100">Training</td><td class="px-4 py-3 border-b border-slate-100">Courses to improve existing skills</td><td class="px-4 py-3 border-b border-slate-100">New qualification courses excluded</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Common Self Assessment Mistakes</h2>
+      <ul>
+        <li><strong>Forgetting the UTR:</strong> You need this to file. It takes 10 days to arrive after registration.</li>
+        <li><strong>Missing the 5 October registration deadline:</strong> Register late and you face penalties even with no tax due.</li>
+        <li><strong>Not keeping receipts:</strong> HMRC can ask to see them up to 5 years later.</li>
+        <li><strong>Claiming personal expenses:</strong> This is the fastest way to trigger an enquiry.</li>
+        <li><strong>Forgetting payments on account:</strong> Many first-time filers are shocked by the January bill being 150% of what they expected.</li>
+        <li><strong>Not using the trading allowance:</strong> If you earn under £1,000, you don't need to register at all.</li>
+      </ul>
+
+      <h2>How to Pay Less Tax (Legally)</h2>
+      <p>Tax avoidance is illegal. Tax planning is not. Here's how sole traders can reduce their tax bill within the rules:</p>
+      <h3>1. Claim Every Allowable Expense</h3>
+      <p>The easiest way to reduce tax is to claim everything you're entitled to. Use our <a href="/templates/expense-tracker" class="text-sky-700 hover:underline">Expense Tracker</a> to make sure nothing gets missed.</p>
+      <h3>2. Use the Marriage Allowance</h3>
+      <p>If your income is below the Personal Allowance (£12,570), you can transfer 10% of it to your spouse, saving them up to £252/year.</p>
+      <h3>3. Make Pension Contributions</h3>
+      <p>Pension contributions extend your basic rate tax band. For every £80 you put into a pension, the government adds £20 — and higher-rate taxpayers can claim back another £20.</p>
+      <h3>4. Incorporate (Maybe)</h3>
+      <p>If your profits are consistently over £50,000, forming a limited company can reduce your tax bill. Corporation Tax is 25% (for profits over £250k) vs Income Tax at 40% plus NICs. But there are costs — accountant fees, filing requirements, and less flexibility.</p>
+
+      <h2>Making Tax Digital: The Future of Self Assessment</h2>
+      <p>Self Assessment as we know it is changing. MTD for Income Tax requires quarterly digital updates instead of one annual return. If you're a sole trader with income over £50,000, this is now live.</p>
+      <p>The good news: quarterly updates are simpler than they sound. You just submit income, expenses, and profit every 3 months. The End of Period Statement replaces the detailed annual return.</p>
+      <p>Read our full <a href="/blog/mtd-for-income-tax-2026" class="text-sky-700 hover:underline">MTD for Income Tax guide</a> for everything you need to know.</p>
+
+      <div class="bg-slate-900 rounded-xl p-8 text-white my-10">
+        <h3 class="text-xl font-bold mb-3">Get Organised for Self Assessment</h3>
+        <p class="text-slate-300 mb-6">Our free spreadsheets make Self Assessment simple. Track income, categorise expenses, and produce tax-ready totals.</p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="/templates/self-employed" class="inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white font-medium px-6 py-3 rounded-lg transition-colors">
+            Self-Employed Log
+          </a>
+          <a href="/templates/expense-tracker" class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white font-medium px-6 py-3 rounded-lg transition-colors">
+            Expense Tracker
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-slate-200">
+      <FaqAccordion items={faq} />
+    </div>
+  </article>
+</Layout>
