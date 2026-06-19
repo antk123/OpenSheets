@@ -32,6 +32,8 @@ export async function GET() {
     '/payslip-template-uk',
     '/quote-template-uk',
     '/budget-template-uk',
+    '/stock-inventory-template-uk',
+    '/delivery-note-template-uk',
     '/blog/mtd-for-income-tax-2026',
     '/blog/vat-registration-guide',
     '/blog/cis-subcontractor-tax-guide',
