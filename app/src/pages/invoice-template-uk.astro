@@ -1,0 +1,113 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'Invoice Template UK — Free Excel Invoice for Small Business';
+const description = 'Free UK invoice template for small businesses and sole traders. HMRC-compliant with VAT option. Auto-calculates totals. Professional design. No signup.';
+const canonical = '/invoice-template-uk';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: `${siteUrl}${canonical}`,
+};
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      <div class="inline-flex items-center gap-2 bg-rose-100 text-rose-700 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+        Business Documents
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-4">
+        Invoice Template UK <span class="text-sky-700">(Free Download)</span>
+      </h1>
+      <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+        Professional invoice template for UK small businesses. Auto-calculates subtotals, VAT, and totals. HMRC-compliant. Works in Excel and Google Sheets.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">What Makes a Valid UK Invoice?</h2>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            HMRC has specific requirements for invoices. Get it wrong and your customers might refuse to pay, or you might struggle to prove income if investigated.
+          </p>
+          <h3 class="text-lg font-semibold text-slate-900 mb-3">Required Information</h3>
+          <ul class="space-y-2 text-slate-600">
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>A unique invoice number</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Your business name and address</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Customer name and address</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Description of goods/services</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Date of supply and invoice date</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Amount charged (with VAT if applicable)</li>
+          </ul>
+          <h3 class="text-lg font-semibold text-slate-900 mb-3 mt-6">If You're VAT-Registered</h3>
+          <ul class="space-y-2 text-slate-600">
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Your VAT registration number</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> VAT rate applied (usually 20%)</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> VAT amount shown separately</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Total amount including VAT</li>
+          </ul>
+        </div>
+        <div class="bg-rose-50 rounded-xl p-6 border border-rose-200">
+          <h3 class="font-bold text-rose-900 mb-4">Get the Invoice Template</h3>
+          <p class="text-sm text-rose-800 mb-4">Professional design with auto-calculations. Optional VAT section.</p>
+          <a href="/templates/invoice-template" class="w-full inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white font-medium px-6 py-3 rounded-lg transition-colors mb-3">
+            View Invoice Template
+          </a>
+          <p class="text-xs text-rose-600 text-center">Free. No email required.</p>
+          <div class="mt-6 pt-6 border-t border-rose-200">
+            <h4 class="font-semibold text-rose-900 text-sm mb-2">Template Features</h4>
+            <ul class="text-sm text-rose-800 space-y-1">
+              <li>• Auto-numbered invoices</li>
+              <li>• Customer database</li>
+              <li>• Line items with quantities</li>
+              <li>• Subtotal, VAT, and total</li>
+              <li>• Payment terms and bank details</li>
+              <li>• Professional UK layout</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">Invoice Best Practices</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <div class="text-2xl mb-2">🔢</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Number Sequentially</h3>
+          <p class="text-sm text-slate-600">Use a simple sequence (001, 002...) or include the year (2026-001). Never skip numbers or reuse them.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <div class="text-2xl mb-2">📅</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Invoice Promptly</h3>
+          <p class="text-sm text-slate-600">Send invoices as soon as work is complete. The sooner you invoice, the sooner you get paid.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <div class="text-2xl mb-2">💷</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Set Clear Terms</h3>
+          <p class="text-sm text-slate-600">Standard is 30 days. Consider 14 days for new clients or 7 days for small amounts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-sky-700">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Download Your Free Invoice Template</h2>
+      <p class="text-sky-100 mb-8 max-w-2xl mx-auto">Professional, HMRC-compliant invoices in minutes. Auto-calculates VAT and totals.</p>
+      <a href="/templates/invoice-template" class="inline-flex items-center justify-center bg-white hover:bg-sky-50 text-sky-700 font-semibold px-8 py-3 rounded-lg transition-colors">
+        Get the Template
+      </a>
+    </div>
+  </section>
+</Layout>
