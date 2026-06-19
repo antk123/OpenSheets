@@ -22,6 +22,7 @@ export async function GET() {
     '/cash-book-template-uk',
     '/mileage-log-template-uk',
     '/profit-and-loss-template-uk',
+    '/balance-sheet-template-uk',
     '/blog/mtd-for-income-tax-2026',
     '/blog/self-assessment-guide-sole-traders',
     '/blog/landlord-tax-guide-2025-26',
