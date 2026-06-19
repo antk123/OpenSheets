@@ -1,0 +1,117 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import TemplateCard from '@/components/TemplateCard.astro';
+import { templates, getTemplatesByCategory } from '@/data/templates';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'Sole Trader Spreadsheet Template (UK) — Free Download';
+const description = 'Free sole trader spreadsheet template for UK self-employed. Track income, expenses, and calculate tax-ready profit figures. HMRC-compatible categories. No signup.';
+const canonical = '/sole-trader-spreadsheet-template-uk';
+
+const soleTraderTemplates = [
+  getTemplatesByCategory('core'),
+  getTemplatesByCategory('tax'),
+].flat().filter(t => ['cash-book', 'self-employed', 'cash-book-balance', 'expense-tracker', 'mileage-log', 'home-office'].includes(t.id));
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: `${siteUrl}${canonical}`,
+};
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      <div class="inline-flex items-center gap-2 bg-amber-100 text-amber-700 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+        For UK Sole Traders
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-4">
+        Sole Trader Spreadsheet Template <span class="text-sky-700">(Free UK Download)</span>
+      </h1>
+      <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+        The simplest way for UK sole traders to track income, expenses, and stay on top of tax. Built using HMRC's standard categories. No subscription. No signup.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Why Sole Traders Need a Proper Spreadsheet</h2>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            As a sole trader, you are legally required to keep accurate records of your business income and expenses. HMRC can ask to see them going back 5 years. A shoebox of receipts won't cut it — and neither will a messy notebook.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            The good news: you don't need expensive accounting software. A well-designed spreadsheet does everything most sole traders need — and costs nothing.
+          </p>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">What a Good Sole Trader Spreadsheet Should Do</h3>
+          <ul class="space-y-2 text-slate-600 mb-6">
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Track every transaction with date, description, and category</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Auto-categorise expenses using HMRC's standard categories</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Calculate running totals and profit/loss</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Produce quarterly summaries for MTD ITSA</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Map figures directly to Self Assessment SA103 boxes</li>
+          </ul>
+        </div>
+        <div class="bg-sky-50 rounded-xl p-6 border border-sky-200">
+          <h3 class="font-bold text-sky-900 mb-4">Recommended Templates for Sole Traders</h3>
+          <div class="space-y-3">
+            {soleTraderTemplates.map((t) => (
+              <a href={`/templates/${t.id}`} class="flex items-center gap-3 bg-white rounded-lg p-3 border border-sky-100 hover:border-sky-300 hover:shadow-sm transition-all">
+                <div class={`w-10 h-10 rounded-lg ${t.color} flex items-center justify-center text-white flex-shrink-0`}>
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+                </div>
+                <div>
+                  <p class="font-medium text-slate-900 text-sm">{t.name}</p>
+                  <p class="text-xs text-slate-500">{t.description}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">MTD for Income Tax: What Sole Traders Must Know</h2>
+      <div class="bg-amber-50 border border-amber-200 rounded-xl p-6 mb-8">
+        <p class="text-amber-800 text-sm">
+          <strong>Important:</strong> If your total self-employment income is over £50,000/year, you must now use Making Tax Digital (MTD) for Income Tax from April 2026. This means quarterly digital updates to HMRC instead of one annual tax return. Our spreadsheets produce the exact quarterly totals you need.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <div class="text-3xl mb-2">📊</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Keep Digital Records</h3>
+          <p class="text-sm text-slate-600">Record every transaction as it happens. Our templates make this a 15-minute weekly task.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <div class="text-3xl mb-2">📅</div>
+          <h3 class="font-semibold text-slate-900 mb-2">Quarterly Updates</h3>
+          <p class="text-sm text-slate-600">Submit totals every 3 months: income, expenses, and net profit. No receipts needed.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <div class="text-3xl mb-2">✅</div>
+          <h3 class="font-semibold text-slate-900 mb-2">End of Period</h3>
+          <p class="text-sm text-slate-600">Finalise your figures and submit your End of Period Statement. Same data, just once more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-sky-700">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Get Your Free Sole Trader Spreadsheet</h2>
+      <p class="text-sky-100 mb-8 max-w-2xl mx-auto">Join thousands of UK sole traders who've simplified their bookkeeping with our free templates.</p>
+      <a href="/templates" class="inline-flex items-center justify-center bg-white hover:bg-sky-50 text-sky-700 font-semibold px-8 py-3 rounded-lg transition-colors">
+        Download Free Templates
+      </a>
+    </div>
+  </section>
+</Layout>

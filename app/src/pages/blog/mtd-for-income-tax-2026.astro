@@ -1,0 +1,252 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Callout from '@/components/Callout.astro';
+import FaqAccordion from '@/components/FaqAccordion.astro';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'MTD for Income Tax is Here: The £50k+ Sole Trader\'s Survival Guide (2026)';
+const description = 'Making Tax Digital for Income Tax (MTD ITSA) is now live for UK sole traders and landlords earning over £50,000. Here\'s exactly what you need to do, when you need to do it, and how to comply for free.';
+const canonical = '/blog/mtd-for-income-tax-2026';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  author: { '@type': 'Organization', name: 'Open Sheets' },
+  publisher: { '@type': 'Organization', name: 'Open Sheets', logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.svg` } },
+  datePublished: '2026-06-20',
+  dateModified: '2026-06-20',
+  url: `${siteUrl}${canonical}`,
+};
+
+const faq = [
+  {
+    question: 'Do I need to sign up for MTD for Income Tax?',
+    answer: 'If your total business and/or property income is over £50,000 per year, you are mandated to join from April 2026. HMRC will not automatically enrol you — you must sign up through your Government Gateway account. If your income is between £30,000 and £50,000, you must join from April 2027.',
+  },
+  {
+    question: 'Can I use a spreadsheet for MTD for Income Tax?',
+    answer: 'Yes — but with a caveat. HMRC requires "MTD-compatible software" that can submit quarterly updates via their API. A plain Excel spreadsheet on its own cannot do this. However, you can use a spreadsheet to keep your records and then use free bridging software or a low-cost MTD tool to submit the quarterly figures. Open Sheets provides HMRC-ready spreadsheets that make the record-keeping part simple.',
+  },
+  {
+    question: 'What happens if I ignore MTD and keep filing once a year?',
+    answer: 'If you are mandated to use MTD and fail to comply, HMRC will charge penalties. The penalty structure starts with a £200 fixed penalty for a first missed quarterly update, with additional daily penalties of up to £60 per day for continued non-compliance. It is not worth ignoring.',
+  },
+  {
+    question: 'How much does MTD-compatible software cost?',
+    answer: 'Commercial options range from £5 to £40 per month. Xero starts at £15/month, QuickBooks at £6/month, Sage at £12/month. However, if you are comfortable with spreadsheets, you can keep your records in a free spreadsheet and use bridging software (some free options exist for low volumes) to submit quarterly updates.',
+  },
+  {
+    question: 'What records do I need to keep for MTD?',
+    answer: 'You need digital records of all your business income and expenses, kept in real-time (or near real-time). This means recording transactions as they happen, not once a year. You need to categorise expenses using HMRC-friendly categories and maintain a running total of your income and outgoings.',
+  },
+];
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <header class="mb-10">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-100 text-amber-700">Making Tax Digital</span>
+        <span class="text-sm text-slate-500">20 June 2026</span>
+        <span class="text-sm text-slate-500">&middot; 12 min read</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-4">
+        MTD for Income Tax is Here: The £50k+ Sole Trader's Survival Guide
+      </h1>
+      <p class="text-lg sm:text-xl text-slate-600 leading-relaxed">
+        Making Tax Digital for Income Tax (MTD ITSA) is now live for UK sole traders and landlords earning over £50,000. Here's exactly what you need to do, when you need to do it, and how to comply without spending a fortune.
+      </p>
+    </header>
+
+    <div class="prose-content">
+      <div class="bg-amber-50 border border-amber-200 rounded-xl p-6 mb-10">
+        <h2 class="text-lg font-bold text-amber-900 mb-2">⚠️ At a Glance — The Critical Facts</h2>
+        <ul class="space-y-2 text-amber-800 text-sm">
+          <li><strong>Who:</strong> Sole traders and landlords with total business/property income over £50,000/year</li>
+          <li><strong>When:</strong> From 6 April 2026 (NOW LIVE)</li>
+          <li><strong>What:</strong> Quarterly digital updates to HMRC + an End of Period Statement</li>
+          <li><strong>Software:</strong> You need MTD-compatible software — but you don't need to pay £40/month</li>
+          <li><strong>Penalty:</strong> £200 for first missed update, then up to £60/day</li>
+        </ul>
+      </div>
+
+      <h2>What Is MTD for Income Tax (MTD ITSA)?</h2>
+      <p>Making Tax Digital for Income Tax Self Assessment (MTD ITSA) is HMRC's programme to move Income Tax reporting online and quarterly. Instead of filing a single tax return once a year by 31 January, you now need to:</p>
+      <ul>
+        <li>Keep digital records of your income and expenses throughout the year</li>
+        <li>Submit a quarterly summary to HMRC (4 times a year)</li>
+        <li>Submit an End of Period Statement (EOPS) to finalise your figures</li>
+        <li>Submit a Final Declaration (replacing the Self Assessment tax return)</li>
+      </ul>
+      <p>This applies to your <strong>total</strong> income from self-employment and property combined. If you are a sole trader earning £35,000 and a landlord earning £20,000 in rent, your total is £55,000 — so MTD ITSA applies to you.</p>
+
+      <h2>The Timeline: Who Needs to Do What and When</h2>
+      <table class="w-full text-sm border-collapse mb-6">
+        <thead>
+          <tr class="bg-slate-100">
+            <th class="text-left px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">Income Level</th>
+            <th class="text-left px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">Mandated From</th>
+            <th class="text-left px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">Action Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="px-4 py-3 border-b border-slate-100">Over £50,000</td>
+            <td class="px-4 py-3 border-b border-slate-100 font-semibold text-amber-700">April 2026 (NOW)</td>
+            <td class="px-4 py-3 border-b border-slate-100">Sign up + quarterly updates</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 border-b border-slate-100">£30,000 – £50,000</td>
+            <td class="px-4 py-3 border-b border-slate-100">April 2027</td>
+            <td class="px-4 py-3 border-b border-slate-100">Prepare now, join next year</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 border-b border-slate-100">Under £30,000</td>
+            <td class="px-4 py-3 border-b border-slate-100">TBC (likely 2028+)</td>
+            <td class="px-4 py-3 border-b border-slate-100">Keep records, watch for updates</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>What Does a "Quarterly Update" Actually Look Like?</h2>
+      <p>This is the part that scares people — but it's simpler than it sounds. A quarterly update is just four numbers:</p>
+      <ul>
+        <li><strong>Total income</strong> for the quarter</li>
+        <li><strong>Total expenses</strong> for the quarter</li>
+        <li><strong>Net profit</strong> (income minus expenses)</li>
+        <li>Confirmation that your records are accurate</li>
+      </ul>
+      <p>You do NOT need to submit receipts, invoices, or detailed breakdowns. You do NOT need an accountant. You just need to have kept proper records during the quarter and be able to produce these totals.</p>
+      <p>The quarterly deadlines follow the standard VAT quarters:</p>
+      <ul>
+        <li>Quarter 1: 6 April – 5 July → Submit by 5 August</li>
+        <li>Quarter 2: 6 July – 5 October → Submit by 5 November</li>
+        <li>Quarter 3: 6 October – 5 January → Submit by 5 February</li>
+        <li>Quarter 4: 6 January – 5 April → Submit by 5 May</li>
+      </ul>
+
+      <h2>How to Comply Without Breaking the Bank</h2>
+      <p>The software industry would love you to believe you need Xero, QuickBooks, or Sage at £15-£40/month. You don't. Here's the truth:</p>
+
+      <h3>Option 1: Spreadsheet + Free Bridging Software (Best for Simple Businesses)</h3>
+      <p>Keep your records in a well-organised spreadsheet (like our free <a href="/templates/self-employed" class="text-sky-700 hover:underline">Self-Employed Log</a> or <a href="/templates/cash-book" class="text-sky-700 hover:underline">Cash Book</a>). At the end of each quarter, enter four numbers into a free or low-cost bridging tool that submits them to HMRC.</p>
+      <p><strong>Cost:</strong> £0-£5/month for the bridging tool (some are free under certain thresholds)</p>
+      <p><strong>Best for:</strong> Sole traders with straightforward finances, under 50 transactions per month</p>
+
+      <h3>Option 2: Budget Cloud Accounting (Best for Growing Businesses)</h3>
+      <p>Tools like FreeAgent (often free with certain business bank accounts), Crunch, or even low-tier QuickBooks offer MTD submission built-in. They also handle invoicing, bank feeds, and expense tracking.</p>
+      <p><strong>Cost:</strong> £5-£15/month</p>
+      <p><strong>Best for:</strong> Businesses with more transactions, multiple income streams, or VAT registration</p>
+
+      <h3>Option 3: Accountant-Led (Best for Complex Situations)</h3>
+      <p>If you have a limited company, multiple properties, complex expenses, or you simply hate admin, an accountant can handle MTD compliance for you. Most accountants now include MTD submission in their standard packages.</p>
+      <p><strong>Cost:</strong> £50-£150/month</p>
+      <p><strong>Best for:</strong> High-earners, limited companies, people who value their time over money</p>
+
+      <div class="bg-sky-50 border border-sky-200 rounded-xl p-6 my-8">
+        <h3 class="font-bold text-sky-900 mb-2">💡 The Open Sheets Approach</h3>
+        <p class="text-sky-800 text-sm">We believe MTD compliance shouldn't cost £40/month. Our free spreadsheets are designed to produce the exact quarterly totals you need. Pair them with a low-cost bridging tool and your total software spend is under £5/month — or even £0.</p>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <a href="/templates/self-employed" class="inline-flex items-center bg-sky-700 hover:bg-sky-800 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors">Self-Employed Log</a>
+          <a href="/templates/cash-book" class="inline-flex items-center bg-white hover:bg-sky-100 text-sky-700 border border-sky-300 text-sm font-medium px-4 py-2 rounded-lg transition-colors">Cash Book</a>
+          <a href="/templates/mtd-quarterly-property" class="inline-flex items-center bg-white hover:bg-sky-100 text-sky-700 border border-sky-300 text-sm font-medium px-4 py-2 rounded-lg transition-colors">MTD Property Tracker</a>
+        </div>
+      </div>
+
+      <h2>Step-by-Step: Getting Ready for MTD ITSA</h2>
+      <h3>Step 1: Check If You're Affected</h3>
+      <p>Add up your total income from:</p>
+      <ul>
+        <li>Self-employment (trading income)</li>
+        <li>Property rental income (gross, before expenses)</li>
+      </ul>
+      <p>If the total is over £50,000 for the 2025/26 tax year, you must join MTD ITSA from April 2026.</p>
+
+      <h3>Step 2: Choose Your Software</h3>
+      <p>Decide whether you'll use:</p>
+      <ul>
+        <li>A spreadsheet + bridging software (cheapest)</li>
+        <li>Cloud accounting software (more features)</li>
+        <li>An accountant (most hands-off)</li>
+      </ul>
+
+      <h3>Step 3: Sign Up for MTD ITSA</h3>
+      <p>Log into your <a href="https://www.gov.uk/guidance/sign-up-your-business-for-making-tax-digital-for-income-tax" target="_blank" rel="noopener" class="text-sky-700 hover:underline">Government Gateway account</a> and follow the MTD ITSA sign-up process. You'll need your UTR (Unique Taxpayer Reference). HMRC will send you a confirmation once you're enrolled.</p>
+
+      <h3>Step 4: Set Up Your Digital Records</h3>
+      <p>This is the critical part. From your start date, you must keep records digitally. This means:</p>
+      <ul>
+        <li>Recording income when you receive it</li>
+        <li>Recording expenses when you pay them</li>
+        <li>Categorising expenses (use HMRC's standard categories)</li>
+        <li>Keeping digital copies of receipts</li>
+      </ul>
+      <p>A phone photo of a receipt is perfectly acceptable. You don't need fancy software — you need consistency.</p>
+
+      <h3>Step 5: Submit Your First Quarterly Update</h3>
+      <p>Your first quarterly update will be due 5 August 2026 (covering 6 April – 5 July 2026). By then, you need to have kept records for that quarter and have your totals ready.</p>
+
+      <h2>Common MTD ITSA Mistakes (And How to Avoid Them)</h2>
+      <table class="w-full text-sm border-collapse mb-6">
+        <thead>
+          <tr class="bg-slate-100">
+            <th class="text-left px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">Mistake</th>
+            <th class="text-left px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">Why It Happens</th>
+            <th class="text-left px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">How to Avoid It</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="px-4 py-3 border-b border-slate-100 font-medium">Waiting until the deadline to start</td>
+            <td class="px-4 py-3 border-b border-slate-100">People think "I'll sort it out in July"</td>
+            <td class="px-4 py-3 border-b border-slate-100">Start recording from 6 April. 15 mins/week.</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 border-b border-slate-100 font-medium">Mixing personal and business expenses</td>
+            <td class="px-4 py-3 border-b border-slate-100">Using one bank account for everything</td>
+            <td class="px-4 py-3 border-b border-slate-100">Open a separate business account.</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 border-b border-slate-100 font-medium">Not keeping digital receipts</td>
+            <td class="px-4 py-3 border-b border-slate-100">"I'll remember what that was for"</td>
+            <td class="px-4 py-3 border-b border-slate-100">Photo every receipt. Same day.</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 border-b border-slate-100 font-medium">Forgetting to sign up</td>
+            <td class="px-4 py-3 border-b border-slate-100">Assuming HMRC enrols you automatically</td>
+            <td class="px-4 py-3 border-b border-slate-100">Sign up manually via Government Gateway.</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 border-b border-slate-100 font-medium">Overpaying for software</td>
+            <td class="px-4 py-3 border-b border-slate-100">Believing you need Xero/QuickBooks</td>
+            <td class="px-4 py-3 border-b border-slate-100">Spreadsheet + bridging tool = £0-£5/mo.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>The Bottom Line</h2>
+      <p>MTD for Income Tax is not the end of the world. It's a shift from annual filing to quarterly updates, but the actual work is the same: keep good records, know your numbers, submit on time.</p>
+      <p>The businesses that struggle will be the ones that ignore it until August, then panic. The ones that succeed will be the ones that spend 15 minutes each week updating a simple spreadsheet.</p>
+      <p>And remember — you do not need to pay £40/month for accounting software to comply with MTD. A free spreadsheet and a £5 bridging tool is a perfectly legitimate, HMRC-accepted approach.</p>
+
+      <div class="bg-slate-900 rounded-xl p-8 text-white my-10">
+        <h3 class="text-xl font-bold mb-3">Get MTD-Ready for Free</h3>
+        <p class="text-slate-300 mb-6">Our spreadsheets are designed to produce the exact quarterly totals HMRC needs. No subscription. No credit card. Just download and start.</p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="/templates" class="inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white font-medium px-6 py-3 rounded-lg transition-colors">
+            Browse Free Templates
+          </a>
+          <a href="/guides/making-tax-digital" class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white font-medium px-6 py-3 rounded-lg transition-colors">
+            Read the Full MTD Guide
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-slate-200">
+      <FaqAccordion items={faq} />
+    </div>
+  </article>
+</Layout>

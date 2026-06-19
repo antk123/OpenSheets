@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://opensheets.co.uk/sitemap.xml

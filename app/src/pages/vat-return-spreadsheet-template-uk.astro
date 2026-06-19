@@ -1,0 +1,125 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'VAT Return Spreadsheet Template (UK) — Free Excel Download';
+const description = 'Free UK VAT return spreadsheet template. Calculate output VAT, input VAT, and net VAT due. Flat Rate Scheme support. HMRC-compliant. No signup required.';
+const canonical = '/vat-return-spreadsheet-template-uk';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: `${siteUrl}${canonical}`,
+};
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      <div class="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+        VAT-Registered Businesses
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-4">
+        VAT Return Spreadsheet Template <span class="text-sky-700">(Free UK Download)</span>
+      </h1>
+      <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+        Free Excel template for UK VAT returns. Calculate output VAT, input VAT, and net VAT due. Supports standard VAT and Flat Rate Scheme. No subscription.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Why You Need a VAT Return Spreadsheet</h2>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            If your business is VAT-registered, you must submit a VAT return to HMRC every quarter (or monthly, if you choose). The return calculates how much VAT you've charged customers (output VAT) minus how much VAT you've paid to suppliers (input VAT). The difference is what you owe HMRC — or what they owe you.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            Most small businesses don't need expensive accounting software for this. A well-designed spreadsheet tracks your VAT transactions, auto-calculates the boxes, and gives you the exact figures to enter into your MTD VAT software or bridging tool.
+          </p>
+          <h3 class="text-lg font-semibold text-slate-900 mb-3">What Our Template Includes</h3>
+          <ul class="space-y-2 text-slate-600">
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Standard VAT calculation (20% rate)</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Flat Rate Scheme support</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Box-by-box VAT 100 breakdown</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Zero-rated and exempt sales tracking</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>EC Sales List preparation</li>
+          </ul>
+        </div>
+        <div class="bg-purple-50 rounded-xl p-6 border border-purple-200">
+          <h3 class="font-bold text-purple-900 mb-4">Get the VAT Return Template</h3>
+          <p class="text-sm text-purple-800 mb-4">Download instantly. Compatible with Excel, Google Sheets, and LibreOffice.</p>
+          <a href="/templates/vat-return" class="w-full inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white font-medium px-6 py-3 rounded-lg transition-colors mb-3">
+            View VAT Return Template
+          </a>
+          <p class="text-xs text-purple-600 text-center">Free. No email required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">Understanding Your VAT Return (Box by Box)</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="bg-slate-100">
+              <th class="text-left px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">Box</th>
+              <th class="text-left px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">What It Is</th>
+              <th class="text-left px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">How to Calculate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="px-4 py-3 border-b border-slate-100 font-medium">Box 1</td><td class="px-4 py-3 border-b border-slate-100">VAT due on sales</td><td class="px-4 py-3 border-b border-slate-100">Total output VAT charged to customers</td></tr>
+            <tr><td class="px-4 py-3 border-b border-slate-100 font-medium">Box 2</td><td class="px-4 py-3 border-b border-slate-100">VAT due on EC acquisitions</td><td class="px-4 py-3 border-b border-slate-100">VAT on goods bought from EU (if applicable)</td></tr>
+            <tr><td class="px-4 py-3 border-b border-slate-100 font-medium">Box 4</td><td class="px-4 py-3 border-b border-slate-100">VAT reclaimed on purchases</td><td class="px-4 py-3 border-b border-slate-100">Total input VAT paid to suppliers</td></tr>
+            <tr><td class="px-4 py-3 border-b border-slate-100 font-medium">Box 5</td><td class="px-4 py-3 border-b border-slate-100">Net VAT to pay/reclaim</td><td class="px-4 py-3 border-b border-slate-100">Box 3 minus Box 4 (Box 3 = Box 1 + Box 2)</td></tr>
+            <tr><td class="px-4 py-3 border-b border-slate-100 font-medium">Box 6</td><td class="px-4 py-3 border-b border-slate-100">Total sales (excl. VAT)</td><td class="px-4 py-3 border-b border-slate-100">Gross sales minus VAT charged</td></tr>
+            <tr><td class="px-4 py-3 border-b border-slate-100 font-medium">Box 7</td><td class="px-4 py-3 border-b border-slate-100">Total purchases (excl. VAT)</td><td class="px-4 py-3 border-b border-slate-100">Gross purchases minus VAT reclaimed</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">Flat Rate Scheme vs Standard VAT</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+          <h3 class="font-bold text-slate-900 mb-3">Standard VAT</h3>
+          <ul class="space-y-2 text-sm text-slate-600">
+            <li>• You charge 20% VAT on sales</li>
+            <li>• You reclaim VAT on purchases</li>
+            <li>• You pay/receive the difference</li>
+            <li>• Best if you have significant VAT-able purchases</li>
+          </ul>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+          <h3 class="font-bold text-slate-900 mb-3">Flat Rate Scheme</h3>
+          <ul class="space-y-2 text-sm text-slate-600">
+            <li>• You charge 20% VAT on sales</li>
+            <li>• You pay a fixed % of turnover to HMRC</li>
+            <li>• You cannot reclaim VAT on purchases (mostly)</li>
+            <li>• Best if you have few VAT-able purchases</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-sky-700">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Download Your Free VAT Return Template</h2>
+      <p class="text-sky-100 mb-8 max-w-2xl mx-auto">Get HMRC-ready VAT calculations without the monthly software fees.</p>
+      <a href="/templates/vat-return" class="inline-flex items-center justify-center bg-white hover:bg-sky-50 text-sky-700 font-semibold px-8 py-3 rounded-lg transition-colors">
+        Get the Template
+      </a>
+    </div>
+  </section>
+</Layout>
