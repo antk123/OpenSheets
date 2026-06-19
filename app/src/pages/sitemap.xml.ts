@@ -30,6 +30,8 @@ export async function GET() {
     '/tax-deadlines-2025-26',
     '/self-employed-tax-calculator-uk',
     '/payslip-template-uk',
+    '/quote-template-uk',
+    '/budget-template-uk',
     '/blog/mtd-for-income-tax-2026',
     '/blog/vat-registration-guide',
     '/blog/cis-subcontractor-tax-guide',
