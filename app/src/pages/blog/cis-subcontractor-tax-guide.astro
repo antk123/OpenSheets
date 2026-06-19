@@ -1,0 +1,131 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'CIS Subcontractor Tax Guide UK — Deductions, Refunds, and Self Assessment';
+const description = 'Complete guide for CIS subcontractors in the UK. How CIS deductions work, how to get a refund, what records to keep, and how to file your Self Assessment tax return.';
+const canonical = '/blog/cis-subcontractor-tax-guide';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: `${siteUrl}${canonical}`,
+  datePublished: '2026-06-20',
+  author: { '@type': 'Organization', name: 'Open Sheets' },
+};
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      <div class="inline-flex items-center gap-2 bg-amber-100 text-amber-700 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+        Construction Industry
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-4">
+        CIS Subcontractor Tax Guide <span class="text-sky-700">(2025/26)</span>
+      </h1>
+      <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+        How the Construction Industry Scheme (CIS) works for subcontractors. Deductions, refunds, record-keeping, and filing your Self Assessment.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-lg max-w-none">
+        <h2>What Is CIS?</h2>
+        <p>
+          The Construction Industry Scheme (CIS) is how HMRC collects tax from people working in construction. If you're a subcontractor, your contractor deducts tax from your payments and sends it directly to HMRC.
+        </p>
+        <p>
+          <strong>Standard deduction:</strong> 20% of your gross pay (before VAT).<br>
+          <strong>If not registered:</strong> 30% deduction — you lose 10% more.
+        </p>
+
+        <h2>Registering for CIS</h2>
+        <p>
+          You should register as a CIS subcontractor before you start work. It's free and takes about 15 minutes online.
+        </p>
+        <ol>
+          <li>Have your UTR (Unique Taxpayer Reference) ready</li>
+          <li>Go to GOV.UK and search "Register for CIS"</li>
+          <li>Verify your identity with your Government Gateway account</li>
+          <li>Tell HMRC you're a subcontractor (not a contractor)</li>
+        </ol>
+        <p>
+          <strong>Without registration:</strong> Your contractor must deduct 30% instead of 20%. On a £2,000 job, that's £600 vs £400 — a £200 difference.
+        </p>
+
+        <h2>CIS Deductions vs Your Tax Bill</h2>
+        <p>
+          CIS deductions are not your final tax bill. They're advance payments towards your tax. At the end of the year, you file a Self Assessment and reconcile:
+        </p>
+        <ul>
+          <li><strong>Tax you owe:</strong> Based on your profit (income minus expenses)</li>
+          <li><strong>CIS deductions paid:</strong> Tax already taken by contractors</li>
+          <li><strong>Result:</strong> Refund if you overpaid, or bill if you underpaid</li>
+        </ul>
+        <p>
+          Most CIS subcontractors get a refund because the 20% deduction is usually more than their actual tax liability (especially after claiming expenses).
+        </p>
+
+        <h2>Expenses You Can Claim</h2>
+        <p>
+          CIS subcontractors often miss expenses. Here are the big ones:
+        </p>
+        <ul>
+          <li>Tools and equipment (including power tools)</li>
+          <li>Work clothing and safety gear</li>
+          <li>Travel to temporary workplaces (not commuting)</li>
+          <li>Phone and internet (business proportion)</li>
+          <li>Professional subscriptions (CSCS, etc.)</li>
+          <li>Accountancy fees</li>
+        </ul>
+        <p>
+          <strong>Tip:</strong> Keep every receipt. A £100 tool receipt saves you £20-£45 in tax, depending on your tax bracket.
+        </p>
+
+        <h2>Record-Keeping for CIS</h2>
+        <p>
+          HMRC can ask to see your records for up to 5 years. You must keep:
+        </p>
+        <ul>
+          <li><strong>Payment statements</strong> from every contractor (showing CIS deductions)</li>
+          <li><strong>Invoices</strong> you sent to contractors</li>
+          <li><strong>Expense receipts</strong> with dates and descriptions</li>
+          <li><strong>Bank statements</strong> showing business income and expenses</li>
+        </ul>
+        <p>
+          Our CIS Deduction Statement Template tracks all your deductions by contractor, so you know exactly how much tax you've already paid when it comes to Self Assessment time.
+        </p>
+
+        <h2>Getting a CIS Refund</h2>
+        <p>
+          If your CIS deductions exceed your tax liability, you can claim a refund. You have two options:
+        </p>
+        <ol>
+          <li><strong>Wait until Self Assessment:</strong> File your tax return and HMRC will refund the difference automatically</li>
+          <li><strong>Apply during the year:</strong> If you stop working, you can apply for an in-year refund using form CIS40</li>
+        </ol>
+        <p>
+          Most subcontractors wait for Self Assessment because it's simpler. The refund usually arrives within 2-4 weeks of filing.
+        </p>
+
+        <h2>Get Your CIS Templates</h2>
+        <p>
+          Track deductions, calculate refunds, and stay organised with our free CIS templates:
+        </p>
+        <div class="not-prose">
+          <a href="/templates/cis-deduction-statement" class="inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white font-medium px-6 py-3 rounded-lg transition-colors mr-3">
+            CIS Deduction Statement
+          </a>
+          <a href="/templates/cis-monthly-return" class="inline-flex items-center justify-center bg-slate-700 hover:bg-slate-800 text-white font-medium px-6 py-3 rounded-lg transition-colors">
+            CIS Monthly Return
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,100 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'Self Employed Tax Calculator UK — Estimate Your 2025/26 Tax Bill';
+const description = 'Free UK self employed tax calculator. Estimate your Income Tax, National Insurance, and take-home pay for 2025/26. Quick, accurate, no signup.';
+const canonical = '/self-employed-tax-calculator-uk';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: `${siteUrl}${canonical}`,
+};
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      <div class="inline-flex items-center gap-2 bg-sky-100 text-sky-700 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+        Tax Calculator
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-4">
+        Self Employed Tax Calculator UK <span class="text-sky-700">(2025/26)</span>
+      </h1>
+      <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+        Estimate your Income Tax and National Insurance for the 2025/26 tax year. Quick, accurate, and free. No signup required.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">How Much Tax Will You Pay?</h2>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            Self-employed tax is simpler than it looks. You pay Income Tax on your profit (income minus expenses) and two types of National Insurance: Class 2 and Class 4.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            <strong>Income Tax rates 2025/26:</strong>
+          </p>
+          <ul class="space-y-2 text-slate-600">
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Personal Allowance:</strong> £0 tax on first £12,570</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Basic Rate (20%):</strong> £12,571 to £50,270</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Higher Rate (40%):</strong> £50,271 to £125,140</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Additional Rate (45%):</strong> Over £125,140</li>
+          </ul>
+          <p class="text-slate-600 leading-relaxed mt-4">
+            <strong>National Insurance 2025/26:</strong>
+          </p>
+          <ul class="space-y-2 text-slate-600">
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Class 2:</strong> £3.70/week (flat rate, if profits > £6,845)</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Class 4:</strong> 6% on profits between £12,570 and £50,270; 2% above £50,270</li>
+          </ul>
+        </div>
+        <div class="bg-sky-50 rounded-xl p-6 border border-sky-200">
+          <h3 class="font-bold text-sky-900 mb-4">Quick Tax Examples</h3>
+          <div class="space-y-4">
+            <div class="bg-white rounded-lg p-4 border border-sky-100">
+              <p class="font-semibold text-slate-900 text-sm">Profit: £20,000</p>
+              <p class="text-slate-600 text-sm">Income Tax: £1,486</p>
+              <p class="text-slate-600 text-sm">Class 2 NI: £192</p>
+              <p class="text-slate-600 text-sm">Class 4 NI: £446</p>
+              <p class="font-bold text-sky-700 text-sm mt-1">Total tax: £2,124</p>
+              <p class="text-slate-500 text-xs">Take-home: £17,876</p>
+            </div>
+            <div class="bg-white rounded-lg p-4 border border-sky-100">
+              <p class="font-semibold text-slate-900 text-sm">Profit: £40,000</p>
+              <p class="text-slate-600 text-sm">Income Tax: £5,486</p>
+              <p class="text-slate-600 text-sm">Class 2 NI: £192</p>
+              <p class="text-slate-600 text-sm">Class 4 NI: £1,646</p>
+              <p class="font-bold text-sky-700 text-sm mt-1">Total tax: £7,324</p>
+              <p class="text-slate-500 text-xs">Take-home: £32,676</p>
+            </div>
+            <div class="bg-white rounded-lg p-4 border border-sky-100">
+              <p class="font-semibold text-slate-900 text-sm">Profit: £60,000</p>
+              <p class="text-slate-600 text-sm">Income Tax: £11,432</p>
+              <p class="text-slate-600 text-sm">Class 2 NI: £192</p>
+              <p class="text-slate-600 text-sm">Class 4 NI: £2,446</p>
+              <p class="font-bold text-sky-700 text-sm mt-1">Total tax: £14,070</p>
+              <p class="text-slate-500 text-xs">Take-home: £45,930</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">Get the Full Calculator</h2>
+      <p class="text-slate-600 mb-6">Our Self Assessment Calculator template lets you enter your exact income and expenses and calculates your full tax bill automatically.</p>
+      <a href="/templates/self-assessment" class="inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white font-medium px-6 py-3 rounded-lg transition-colors">
+        View Self Assessment Calculator
+      </a>
+    </div>
+  </section>
+</Layout>

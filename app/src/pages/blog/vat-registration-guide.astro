@@ -1,0 +1,120 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'VAT Registration Guide UK — When to Register and How to Do It';
+const description = 'Complete guide to VAT registration for UK small businesses. When you must register, the £85,000 threshold, voluntary registration, and how to register with HMRC.';
+const canonical = '/blog/vat-registration-guide';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: `${siteUrl}${canonical}`,
+  datePublished: '2026-06-20',
+  author: { '@type': 'Organization', name: 'Open Sheets' },
+};
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      <div class="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+        VAT Guide
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-4">
+        VAT Registration Guide UK <span class="text-sky-700">(2025/26)</span>
+      </h1>
+      <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+        When to register for VAT, the £85,000 threshold, voluntary registration, and a step-by-step guide to registering with HMRC.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-lg max-w-none">
+        <h2>Do You Need to Register for VAT?</h2>
+        <p>
+          You must register for VAT if your VAT-taxable turnover exceeds <strong>£85,000</strong> in any 12-month period. This is called the VAT threshold, and it has been frozen at £85,000 since April 2017.
+        </p>
+        <p>
+          <strong>Important:</strong> It's any 12-month period, not just the tax year. If you had a great run from July to June and hit £85,000, you must register — even if your tax year total is lower.
+        </p>
+
+        <h2>Voluntary VAT Registration</h2>
+        <p>
+          You can register voluntarily even if you're below the threshold. This makes sense if:
+        </p>
+        <ul>
+          <li>You sell mainly to VAT-registered businesses (they can reclaim your VAT)</li>
+          <li>You have significant VAT on purchases you want to reclaim</li>
+          <li>You want to appear more established to clients</li>
+        </ul>
+        <p>
+          <strong>Warning:</strong> Voluntary registration is usually a bad idea if you sell to consumers (B2C). Adding 20% VAT makes you 20% more expensive, and consumers can't reclaim it.
+        </p>
+
+        <h2>What Counts Towards the Threshold?</h2>
+        <p>
+          Only VAT-taxable sales count. This includes:
+        </p>
+        <ul>
+          <li>Standard-rated sales (20% VAT)</li>
+          <li>Reduced-rate sales (5% VAT — e.g., domestic fuel)</li>
+          <li>Zero-rated sales (0% VAT — e.g., books, most food)</li>
+        </ul>
+        <p>
+          <strong>Excluded:</strong> Exempt sales (e.g., insurance, financial services), gifts, and sales of capital assets.
+        </p>
+
+        <h2>How to Register for VAT</h2>
+        <ol>
+          <li><strong>Create a Government Gateway account</strong> if you don't have one</li>
+          <li><strong>Apply online</strong> at GOV.UK — search "Register for VAT"</li>
+          <li><strong>Provide business details:</strong> turnover, business activity, bank details</li>
+          <li><strong>Choose an accounting scheme:</strong> Standard VAT, Flat Rate, or Cash Accounting</li>
+          <li><strong>Wait for your VAT certificate</strong> — usually 2-4 weeks</li>
+        </ol>
+
+        <h2>Choosing a VAT Scheme</h2>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 my-6">
+          <h3 class="font-bold text-slate-900 mb-3">Standard VAT Accounting</h3>
+          <p class="text-slate-600 text-sm">Pay VAT on invoices when you issue them, reclaim VAT when you receive invoices. Best for businesses with consistent cash flow.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 my-6">
+          <h3 class="font-bold text-slate-900 mb-3">Cash Accounting</h3>
+          <p class="text-slate-600 text-sm">Pay VAT when your customer pays you, reclaim VAT when you pay suppliers. Better for businesses with late-paying customers.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 my-6">
+          <h3 class="font-bold text-slate-900 mb-3">Flat Rate Scheme</h3>
+          <p class="text-slate-600 text-sm">Pay a fixed percentage of your turnover as VAT. Simpler but you can't reclaim VAT on purchases. Usually only worth it for very low-cost businesses.</p>
+        </div>
+
+        <h2>Penalties for Late Registration</h2>
+        <p>
+          If you should have registered but didn't, HMRC can charge you a penalty based on how late you were:
+        </p>
+        <ul>
+          <li>Up to 9 months late: 5% penalty</li>
+          <li>9-18 months late: 10% penalty</li>
+          <li>Over 18 months late: 15% penalty</li>
+        </ul>
+        <p>
+          You also have to pay VAT on sales you made before registering — which you probably didn't charge customers for. This can be painful.
+        </p>
+
+        <h2>Get Your VAT Return Template</h2>
+        <p>
+          Once registered, you need to file VAT returns every quarter. Our free VAT Return Template calculates your box 1-9 figures automatically and includes a VAT reconciliation checker.
+        </p>
+        <div class="not-prose">
+          <a href="/templates/vat-return" class="inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white font-medium px-6 py-3 rounded-lg transition-colors">
+            Get the VAT Return Template
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
