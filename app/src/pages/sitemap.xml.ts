@@ -42,6 +42,7 @@ export async function GET() {
     '/holiday-tracker-template-uk',
     '/bank-reconciliation-template-uk',
     '/project-budget-template-uk',
+    '/gantt-chart-template-uk',
     '/blog/mtd-for-income-tax-2026',
     '/blog/vat-registration-guide',
     '/blog/cis-subcontractor-tax-guide',
