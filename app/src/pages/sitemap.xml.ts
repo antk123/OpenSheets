@@ -24,6 +24,7 @@ export async function GET() {
     '/profit-and-loss-template-uk',
     '/balance-sheet-template-uk',
     '/expense-tracker-template-uk',
+    '/home-office-expenses-calculator-uk',
     '/blog/mtd-for-income-tax-2026',
     '/blog/self-assessment-guide-sole-traders',
     '/blog/landlord-tax-guide-2025-26',
