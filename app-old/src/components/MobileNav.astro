@@ -1,0 +1,65 @@
+---
+---
+
+<div class="md:hidden" data-mobile-nav>
+  <button
+    type="button"
+    class="mobile-nav-open p-2 rounded-lg text-slate-600 hover:bg-slate-100"
+    aria-label="Open menu"
+    aria-expanded="false"
+  >
+    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+
+  <div class="mobile-nav-overlay fixed inset-0 bg-black/30 z-40 hidden" aria-hidden="true"></div>
+  <div class="mobile-nav-panel fixed inset-y-0 right-0 w-[300px] bg-white shadow-xl z-50 p-6 transform translate-x-full transition-transform duration-200 overflow-y-auto">
+    <div class="flex justify-end mb-6">
+      <button type="button" class="mobile-nav-close p-2 rounded-lg text-slate-600 hover:bg-slate-100" aria-label="Close menu">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <nav class="flex flex-col gap-1" aria-label="Mobile navigation">
+      <a href="/" class="px-4 py-3 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900">Home</a>
+      <a href="/guides" class="px-4 py-3 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900">Guides</a>
+      <a href="/templates" class="px-4 py-3 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900">Templates</a>
+      <a href="/about" class="px-4 py-3 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900">Why Spreadsheets?</a>
+      <a href="/how-to-use" class="px-4 py-3 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900">How to Use</a>
+      <a href="/templates" class="mt-4 text-center bg-sky-700 hover:bg-sky-800 text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors">Download Free Templates</a>
+    </nav>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navs = document.querySelectorAll('[data-mobile-nav]');
+    navs.forEach((nav) => {
+      const openBtn = nav.querySelector('.mobile-nav-open') as HTMLButtonElement | null;
+      const closeBtn = nav.querySelector('.mobile-nav-close') as HTMLButtonElement | null;
+      const overlay = nav.querySelector('.mobile-nav-overlay') as HTMLElement | null;
+      const panel = nav.querySelector('.mobile-nav-panel') as HTMLElement | null;
+
+      function open() {
+        overlay?.classList.remove('hidden');
+        panel?.classList.remove('translate-x-full');
+        openBtn?.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('overflow-hidden');
+      }
+
+      function close() {
+        overlay?.classList.add('hidden');
+        panel?.classList.add('translate-x-full');
+        openBtn?.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('overflow-hidden');
+      }
+
+      openBtn?.addEventListener('click', open);
+      closeBtn?.addEventListener('click', close);
+      overlay?.addEventListener('click', close);
+    });
+  });
+</script>

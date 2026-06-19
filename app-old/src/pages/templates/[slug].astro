@@ -1,0 +1,138 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import TemplateIcon from '@/components/TemplateIcon.astro';
+import { getTemplateById, templates } from '@/data/templates';
+import { siteUrl } from '@/lib/utils';
+
+export function getStaticPaths() {
+  return templates.map((t) => ({ params: { slug: t.id } }));
+}
+
+const { slug } = Astro.params;
+const template = getTemplateById(slug);
+
+if (!template) {
+  return Astro.redirect('/templates');
+}
+
+const title = `${template.name} — Free Excel Template | Open Sheets`;
+const description = template.description;
+const canonical = `/templates/${template.id}`;
+
+const categoryColors: Record<string, string> = {
+  core: 'bg-sky-100 text-sky-700',
+  tax: 'bg-purple-100 text-purple-700',
+  reports: 'bg-blue-100 text-blue-700',
+  property: 'bg-amber-100 text-amber-700',
+  business: 'bg-rose-100 text-rose-700',
+};
+
+const jsonLd = {
+  '@type': 'SoftwareApplication',
+  name: template.name,
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Excel, Google Sheets, LibreOffice',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'GBP',
+  },
+  url: `${siteUrl}${canonical}`,
+  description: template.description,
+  featureList: template.features,
+};
+---
+
+<Layout title={title} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
+      <a href="/templates" class="text-sm text-slate-500 hover:text-sky-700 mb-6 inline-flex items-center gap-1 transition-colors">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+        Back to all templates
+      </a>
+      <div class="flex items-center gap-3 mb-4">
+        <span class={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${categoryColors[template.category]}`}>
+          {template.categoryLabel}
+        </span>
+        {template.isNew && <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-100 text-amber-700">New</span>}
+        {template.isPopular && <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-sky-100 text-sky-700">Popular</span>}
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 leading-tight">{template.name}</h1>
+      <p class="text-lg text-slate-600 max-w-3xl">{template.description}</p>
+    </div>
+  </section>
+
+  <section class="py-12 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-[1fr_280px] gap-12">
+        <div>
+          <div class={`w-16 h-16 rounded-2xl ${template.color} flex items-center justify-center text-white mb-6`}>
+            <TemplateIcon icon={template.icon} class="w-8 h-8" />
+          </div>
+          <p class="text-slate-600 leading-relaxed mb-8 text-lg">{template.longDescription}</p>
+
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">What&apos;s Included</h2>
+          <ul class="space-y-3 mb-8">
+            {template.features.map((feature) => (
+              <li class="flex items-start gap-3 text-slate-600">
+                <svg class="w-5 h-5 text-sky-700 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="flex flex-col sm:flex-row gap-3 mt-10">
+            <a
+              href={`/templates/${template.fileName}`}
+              download={template.fileName}
+              class="flex-1 inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white h-12 text-base font-semibold rounded-lg transition-colors"
+            >
+              <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+              </svg>
+              Download {template.fileName}
+            </a>
+            <a
+              href="/templates"
+              class="inline-flex items-center justify-center h-12 px-6 text-base font-medium text-slate-700 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors"
+            >
+              Browse all templates
+            </a>
+          </div>
+          <p class="text-xs text-slate-500 text-center sm:text-left mt-4">
+            File format: .xlsx (Microsoft Excel / Google Sheets / LibreOffice)
+          </p>
+        </div>
+
+        <aside class="hidden lg:block">
+          <div class="sticky top-24 bg-slate-50 rounded-xl p-5 border border-slate-200 space-y-4">
+            <h3 class="font-semibold text-slate-900 text-sm uppercase tracking-wider">Template Details</h3>
+            <div class="text-sm">
+              <span class="block text-slate-500">Category</span>
+              <span class="font-medium text-slate-900">{template.categoryLabel}</span>
+            </div>
+            <div class="text-sm">
+              <span class="block text-slate-500">File name</span>
+              <span class="font-medium text-slate-900">{template.fileName}</span>
+            </div>
+            <div class="text-sm">
+              <span class="block text-slate-500">Price</span>
+              <span class="font-medium text-slate-900">Free</span>
+            </div>
+            <a
+              href={`/templates/${template.fileName}`}
+              download={template.fileName}
+              class="w-full inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white text-sm font-medium px-4 py-2.5 rounded-lg transition-colors"
+            >
+              Download Now
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>

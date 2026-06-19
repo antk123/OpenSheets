@@ -1,0 +1,172 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import Callout from '@/components/Callout.astro';
+import FaqAccordion from '@/components/FaqAccordion.astro';
+import TemplateIcon from '@/components/TemplateIcon.astro';
+import { templates } from '@/data/templates';
+import { guides, guideCategories } from '@/data/guides';
+import { siteUrl } from '@/lib/utils';
+
+export async function getStaticPaths() {
+  const allGuides = await getCollection('guides');
+  return allGuides.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'guides'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const { title, description, category, readTime, lastUpdated, relatedTemplates, relatedGuides, faq } = entry.data;
+const canonical = `/guides/${entry.slug}`;
+
+const categoryLabel = guideCategories.find((c) => c.id === category)?.label ?? category;
+const categoryColors: Record<string, string> = {
+  bookkeeping: 'bg-sky-100 text-sky-700',
+  tax: 'bg-blue-100 text-blue-700',
+  mtd: 'bg-purple-100 text-purple-700',
+  business: 'bg-amber-100 text-amber-700',
+  expenses: 'bg-rose-100 text-rose-700',
+};
+
+const relatedTemplateList = templates.filter((t) => relatedTemplates.includes(t.id));
+const relatedGuideList = guides.filter((g) => relatedGuides.includes(g.id));
+
+const sectionsWithHeadings = (entry.body ? entry.body.match(/^##\s+(.+)$/gm) || [] : [])
+  .map((h) => h.replace(/^##\s+/, ''));
+
+const articleSchema = {
+  '@type': 'Article',
+  headline: title,
+  description,
+  author: { '@type': 'Organization', name: 'Open Sheets' },
+  publisher: { '@type': 'Organization', name: 'Open Sheets', logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.svg` } },
+  dateModified: new Date().toISOString().split('T')[0],
+  url: `${siteUrl}${canonical}`,
+};
+
+const faqSchema = faq.length > 0 ? {
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+} : null;
+
+const jsonLd = faqSchema ? [articleSchema, faqSchema] : articleSchema;
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
+      <a href="/guides" class="text-sm text-slate-500 hover:text-sky-700 mb-6 inline-flex items-center gap-1 transition-colors">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+        Back to all guides
+      </a>
+      <div class="flex items-center gap-3 mb-4 flex-wrap">
+        <span class={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${categoryColors[category]}`}>
+          {categoryLabel}
+        </span>
+        <span class="text-sm text-slate-500">{readTime}</span>
+        <span class="text-sm text-slate-500">&middot; Updated {lastUpdated}</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 leading-tight">{title}</h1>
+      <p class="text-lg text-slate-600 max-w-3xl">{description}</p>
+    </div>
+  </section>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid lg:grid-cols-[1fr_280px] gap-12">
+      <article class="prose-content">
+        <Content components={{ Callout }} />
+
+        {faq.length > 0 && (
+          <div class="mt-12 pt-10 border-t border-slate-200">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
+            <FaqAccordion items={faq} />
+          </div>
+        )}
+
+        <div class="mt-12 pt-8 border-t border-slate-200">
+          <a href="/guides" class="inline-flex items-center border border-slate-300 text-slate-700 hover:bg-slate-50 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors">
+            <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            Back to all guides
+          </a>
+        </div>
+      </article>
+
+      <aside class="hidden lg:block">
+        <div class="sticky top-24 space-y-6">
+          {sectionsWithHeadings.length > 0 && (
+            <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+              <h3 class="font-semibold text-slate-900 mb-3 text-sm uppercase tracking-wider">In This Guide</h3>
+              <nav class="space-y-1" aria-label="Table of contents">
+                {sectionsWithHeadings.map((heading) => {
+                  const id = heading.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                  return (
+                    <a href={`#${id}`} class="block text-sm text-slate-600 hover:text-sky-700 py-1.5 px-2 rounded-md hover:bg-white transition-all">
+                      {heading}
+                    </a>
+                  );
+                })}
+                {faq.length > 0 && (
+                  <a href="#faq" class="block text-sm text-slate-600 hover:text-sky-700 py-1.5 px-2 rounded-md hover:bg-white transition-all">
+                    FAQ
+                  </a>
+                )}
+              </nav>
+            </div>
+          )}
+
+          {relatedTemplateList.length > 0 && (
+            <div class="bg-sky-50 rounded-xl p-5 border border-sky-200">
+              <h3 class="font-semibold text-sky-800 mb-3 text-sm uppercase tracking-wider">Related Templates</h3>
+              <div class="space-y-2">
+                {relatedTemplateList.map((template) => (
+                  <a href={`/templates/${template.id}`} class="flex items-center gap-3 text-sm text-sky-700 hover:text-sky-900 hover:bg-sky-100/50 py-2 px-3 rounded-md transition-all">
+                    <span class={`w-8 h-8 rounded-lg ${template.color} flex items-center justify-center text-white flex-shrink-0`}>
+                      <TemplateIcon icon={template.icon} class="w-4 h-4" />
+                    </span>
+                    <span class="font-medium">{template.name}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {relatedGuideList.length > 0 && (
+            <div class="bg-blue-50 rounded-xl p-5 border border-blue-200">
+              <h3 class="font-semibold text-blue-900 mb-3 text-sm uppercase tracking-wider">Related Guides</h3>
+              <div class="space-y-2">
+                {relatedGuideList.map((g) => (
+                  <a href={`/guides/${g.slug}`} class="block text-sm text-blue-700 hover:text-blue-900 hover:bg-blue-100/50 py-2 px-3 rounded-md transition-all">
+                    {g.title}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div class="bg-slate-900 rounded-xl p-5 text-white">
+            <h3 class="font-semibold mb-2 text-sm">Need a template?</h3>
+            <p class="text-sm text-slate-300 mb-4">All our spreadsheets are free to download. No email required.</p>
+            <a href="/templates" class="w-full inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white text-sm font-medium px-4 py-2.5 rounded-lg transition-colors">
+              Browse Templates
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</Layout>

@@ -1,7 +1,8 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import TemplateIcon from '@/components/TemplateIcon.astro';
-import { getTemplateById, templates } from '@/data/templates';
+import FaqAccordion from '@/components/FaqAccordion.astro';
+import { getTemplateById, getLandingContent, getRelatedTemplates, templates } from '@/data/templates';
 import { siteUrl } from '@/lib/utils';
 
 export function getStaticPaths() {
@@ -10,12 +11,13 @@ export function getStaticPaths() {
 
 const { slug } = Astro.params;
 const template = getTemplateById(slug);
+const content = getLandingContent(slug);
 
 if (!template) {
   return Astro.redirect('/templates');
 }
 
-const title = `${template.name} — Free Excel Template | Open Sheets`;
+const title = `${template.name} Template — Free Excel Download | Open Sheets`;
 const description = template.description;
 const canonical = `/templates/${template.id}`;
 
@@ -26,6 +28,22 @@ const categoryColors: Record<string, string> = {
   property: 'bg-amber-100 text-amber-700',
   business: 'bg-rose-100 text-rose-700',
 };
+
+// Get related templates
+const relatedTemplates = content ? getRelatedTemplates(content.relatedTemplates).slice(0, 4) : [];
+
+// FAQ Schema
+const faqSchema = content ? {
+  '@type': 'FAQPage',
+  mainEntity: content.faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer,
+    },
+  })),
+} : null;
 
 const jsonLd = {
   '@type': 'SoftwareApplication',
@@ -40,99 +58,302 @@ const jsonLd = {
   url: `${siteUrl}${canonical}`,
   description: template.description,
   featureList: template.features,
+  ...(faqSchema && { faq: faqSchema }),
 };
 ---
 
 <Layout title={title} description={description} canonical={canonical} jsonLd={jsonLd}>
-  <section class="bg-slate-50 border-b border-slate-200">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
-      <a href="/templates" class="text-sm text-slate-500 hover:text-sky-700 mb-6 inline-flex items-center gap-1 transition-colors">
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-        </svg>
-        Back to all templates
-      </a>
-      <div class="flex items-center gap-3 mb-4">
-        <span class={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${categoryColors[template.category]}`}>
-          {template.categoryLabel}
-        </span>
-        {template.isNew && <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-100 text-amber-700">New</span>}
-        {template.isPopular && <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-sky-100 text-sky-700">Popular</span>}
-      </div>
-      <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 leading-tight">{template.name}</h1>
-      <p class="text-lg text-slate-600 max-w-3xl">{template.description}</p>
+  <!-- Breadcrumb -->
+  <div class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="flex text-sm text-slate-500">
+        <a href="/" class="hover:text-sky-700 transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/templates" class="hover:text-sky-700 transition-colors">Templates</a>
+        <span class="mx-2">/</span>
+        <span class="text-slate-900 font-medium">{template.name}</span>
+      </nav>
     </div>
-  </section>
+  </div>
 
-  <section class="py-12 bg-white">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-[1fr_280px] gap-12">
+  <!-- Hero Section -->
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div class="grid lg:grid-cols-[1fr_300px] gap-12 items-start">
         <div>
-          <div class={`w-16 h-16 rounded-2xl ${template.color} flex items-center justify-center text-white mb-6`}>
-            <TemplateIcon icon={template.icon} class="w-8 h-8" />
+          <div class="flex items-center gap-3 mb-4">
+            <span class={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${categoryColors[template.category]}`}>
+              {template.categoryLabel}
+            </span>
+            {template.isNew && <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-100 text-amber-700">New</span>}
+            {template.isPopular && <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-sky-100 text-sky-700">Popular</span>}
           </div>
-          <p class="text-slate-600 leading-relaxed mb-8 text-lg">{template.longDescription}</p>
-
-          <h2 class="text-2xl font-bold text-slate-900 mb-4">What&apos;s Included</h2>
-          <ul class="space-y-3 mb-8">
-            {template.features.map((feature) => (
-              <li class="flex items-start gap-3 text-slate-600">
-                <svg class="w-5 h-5 text-sky-700 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>{feature}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div class="flex flex-col sm:flex-row gap-3 mt-10">
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 leading-tight">
+            {template.name} <span class="text-sky-700">Template</span>
+          </h1>
+          <p class="text-lg text-slate-600 mb-8 max-w-2xl">{template.description}</p>
+          <div class="flex flex-col sm:flex-row gap-4">
             <a
               href={`/templates/${template.fileName}`}
               download={template.fileName}
-              class="flex-1 inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white h-12 text-base font-semibold rounded-lg transition-colors"
+              class="inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white h-14 px-8 text-base font-semibold rounded-lg transition-colors"
             >
               <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
               </svg>
-              Download {template.fileName}
+              Download Free Template
             </a>
-            <a
-              href="/templates"
-              class="inline-flex items-center justify-center h-12 px-6 text-base font-medium text-slate-700 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors"
-            >
-              Browse all templates
-            </a>
+            <span class="inline-flex items-center text-sm text-slate-500">
+              <svg class="w-5 h-5 mr-2 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Free download, no signup required
+            </span>
           </div>
-          <p class="text-xs text-slate-500 text-center sm:text-left mt-4">
-            File format: .xlsx (Microsoft Excel / Google Sheets / LibreOffice)
+          <p class="text-xs text-slate-400 mt-4">
+            File format: .xlsx (Microsoft Excel, Google Sheets, LibreOffice compatible)
           </p>
         </div>
 
-        <aside class="hidden lg:block">
-          <div class="sticky top-24 bg-slate-50 rounded-xl p-5 border border-slate-200 space-y-4">
-            <h3 class="font-semibold text-slate-900 text-sm uppercase tracking-wider">Template Details</h3>
-            <div class="text-sm">
-              <span class="block text-slate-500">Category</span>
-              <span class="font-medium text-slate-900">{template.categoryLabel}</span>
+        <!-- Template Preview Card -->
+        <div class="hidden lg:block">
+          <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+            <div class={`w-16 h-16 rounded-2xl ${template.color} flex items-center justify-center text-white mb-4`}>
+              <TemplateIcon icon={template.icon} class="w-8 h-8" />
             </div>
-            <div class="text-sm">
-              <span class="block text-slate-500">File name</span>
-              <span class="font-medium text-slate-900">{template.fileName}</span>
+            <h3 class="font-semibold text-slate-900 mb-2">{template.shortName}</h3>
+            <ul class="space-y-2 text-sm text-slate-600">
+              {template.features.slice(0, 4).map((feature) => (
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-sky-700 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="mt-6 pt-4 border-t border-slate-100">
+              <div class="flex justify-between items-center text-sm">
+                <span class="text-slate-500">Price</span>
+                <span class="font-semibold text-emerald-600">Free</span>
+              </div>
+              <div class="flex justify-between items-center text-sm mt-2">
+                <span class="text-slate-500">Format</span>
+                <span class="font-medium text-slate-700">.xlsx</span>
+              </div>
             </div>
-            <div class="text-sm">
-              <span class="block text-slate-500">Price</span>
-              <span class="font-medium text-slate-900">Free</span>
-            </div>
-            <a
-              href={`/templates/${template.fileName}`}
-              download={template.fileName}
-              class="w-full inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white text-sm font-medium px-4 py-2.5 rounded-lg transition-colors"
-            >
-              Download Now
-            </a>
           </div>
-        </aside>
+        </div>
       </div>
+    </div>
+  </section>
+
+  {content && (
+    <>
+      <!-- What Is It Section -->
+      <section class="py-16 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-[2fr_1fr] gap-12">
+            <div>
+              <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-sky-100 text-sky-700 mb-4">What is it?</span>
+              <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">{content.whatIs.title}</h2>
+              <p class="text-slate-600 leading-relaxed mb-6">{content.whatIs.definition}</p>
+              
+              <h3 class="font-semibold text-slate-900 mb-3">Common use cases:</h3>
+              <ul class="space-y-2">
+                {content.whatIs.useCases.map((useCase) => (
+                  <li class="flex items-start gap-3 text-slate-600">
+                    <svg class="w-5 h-5 text-sky-700 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>{useCase}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 h-fit">
+              <h3 class="font-semibold text-slate-900 mb-4">When to use this template</h3>
+              <ul class="space-y-3">
+                {content.whenToUse.map((when) => (
+                  <li class="flex items-start gap-2 text-sm text-slate-600">
+                    <svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span>{when}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What's Included Section -->
+      <section class="py-16 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-sky-100 text-sky-700 mb-4">What's included</span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">What Your Template Contains</h2>
+            <p class="text-slate-600 max-w-2xl mx-auto">Everything you need, pre-built and ready to use. Just enter your data in the blue cells.</p>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {content.whatIncluded.map((item) => (
+              <div class="bg-white rounded-xl p-6 border border-slate-200">
+                <div class="w-10 h-10 rounded-lg bg-sky-100 flex items-center justify-center mb-4">
+                  <svg class="w-5 h-5 text-sky-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 class="font-semibold text-slate-900 mb-2">{item.label}</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Benefits Section -->
+      <section class="py-16 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-700 mb-4">Benefits</span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">How This Template Helps Your Business</h2>
+          </div>
+          <div class="grid md:grid-cols-3 gap-8">
+            {content.benefits.map((benefit) => (
+              <div class="text-center">
+                <div class="w-14 h-14 rounded-2xl bg-sky-50 flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-7 h-7 text-sky-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                  </svg>
+                </div>
+                <h3 class="font-semibold text-slate-900 mb-2">{benefit.title}</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- How to Use Section -->
+      <section class="py-16 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-[1fr_1.5fr] gap-12 items-start">
+            <div>
+              <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-sky-100 text-sky-700 mb-4">How to use</span>
+              <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">Get Started in Minutes</h2>
+              <p class="text-slate-600 mb-6">No accounting knowledge required. Follow these simple steps and you'll be tracking your finances in no time.</p>
+              <a
+                href={`/templates/${template.fileName}`}
+                download={template.fileName}
+                class="inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white h-12 px-8 text-base font-semibold rounded-lg transition-colors"
+              >
+                <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+                Download Template
+              </a>
+            </div>
+            <div class="space-y-4">
+              {content.howToUse.map((step, index) => (
+                <div class="flex gap-4">
+                  <div class="w-8 h-8 rounded-full bg-sky-700 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
+                    {index + 1}
+                  </div>
+                  <p class="text-slate-600 pt-1">{step}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  )}
+
+  <!-- Features List (always shown) -->
+  {!content && (
+    <section class="py-16 bg-white">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-8">What's Included</h2>
+        <ul class="space-y-3 max-w-2xl">
+          {template.features.map((feature) => (
+            <li class="flex items-start gap-3 text-slate-600">
+              <svg class="w-5 h-5 text-sky-700 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- Related Templates -->
+  {relatedTemplates.length > 0 && (
+    <section class="py-16 bg-white border-t border-slate-200">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+          <h2 class="text-2xl font-bold text-slate-900 mb-2">Related Templates</h2>
+          <p class="text-slate-600">You might also find these useful</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {relatedTemplates.map((related) => (
+            <a
+              href={`/templates/${related.id}`}
+              class="group bg-slate-50 rounded-xl p-5 border border-slate-200 hover:border-sky-300 hover:shadow-md transition-all"
+            >
+              <div class={`w-10 h-10 rounded-lg ${related.color} flex items-center justify-center text-white mb-3`}>
+                <TemplateIcon icon={related.icon} class="w-5 h-5" />
+              </div>
+              <h3 class="font-semibold text-slate-900 text-sm mb-1 group-hover:text-sky-700 transition-colors">{related.shortName}</h3>
+              <p class="text-xs text-slate-500 line-clamp-2">{related.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- FAQ Section -->
+  {content && content.faqs.length > 0 && (
+    <section class="py-16 bg-slate-50 border-y border-slate-200">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+          <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-sky-100 text-sky-700 mb-4">FAQ</span>
+          <h2 class="text-2xl font-bold text-slate-900 mb-2">Frequently Asked Questions</h2>
+          <p class="text-slate-600">Quick answers about this template</p>
+        </div>
+        <FaqAccordion items={content.faqs} />
+      </div>
+    </section>
+  )}
+
+  <!-- Final CTA -->
+  <section class="py-16 bg-sky-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Ready to Get Started?</h2>
+      <p class="text-lg text-sky-100 mb-8">Download this free template and take control of your business finances today.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={`/templates/${template.fileName}`}
+          download={template.fileName}
+          class="inline-flex items-center justify-center bg-white text-sky-700 hover:bg-sky-50 h-14 px-8 text-base font-semibold rounded-lg transition-colors"
+        >
+          <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+          </svg>
+          Download {template.shortName} Template
+        </a>
+        <a
+          href="/templates"
+          class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white border border-white/20 h-14 px-8 text-base rounded-lg transition-colors"
+        >
+          Browse All Templates
+        </a>
+      </div>
+      <p class="text-sm text-sky-200 mt-6">Free download, no email required. Works in Excel and Google Sheets.</p>
     </div>
   </section>
 </Layout>

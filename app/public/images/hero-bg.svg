@@ -1,31 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600" preserveAspectRatio="none">
   <defs>
-    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f0f9ff" />
-      <stop offset="50%" stop-color="#ffffff" />
-      <stop offset="100%" stop-color="#eff6ff" />
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0f9ff"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
     </linearGradient>
-    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="90" />
-    </filter>
-    <pattern id="dotGrid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <circle cx="1.5" cy="1.5" r="1" fill="#0ea5e9" opacity="0.08" />
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#bae6fd" stroke-width="0.5" opacity="0.3"/>
     </pattern>
   </defs>
-
-  <!-- Base gradient -->
-  <rect width="1440" height="900" fill="url(#heroGrad)" />
-
-  <!-- Subtle dot grid -->
-  <rect width="1440" height="900" fill="url(#dotGrid)" />
-
-  <!-- Soft gradient orbs -->
-  <circle cx="180" cy="220" r="360" fill="#7dd3fc" opacity="0.28" filter="url(#blur)" />
-  <circle cx="1250" cy="280" r="420" fill="#c4b5fd" opacity="0.22" filter="url(#blur)" />
-  <circle cx="720" cy="750" r="380" fill="#a5f3fc" opacity="0.26" filter="url(#blur)" />
-  <circle cx="1100" cy="700" r="280" fill="#e0e7ff" opacity="0.35" filter="url(#blur)" />
-
-  <!-- Fine curved accents -->
-  <path d="M-100 600 Q 360 300 720 600 T 1540 500" fill="none" stroke="#0ea5e9" stroke-width="1.5" opacity="0.08" />
-  <path d="M-80 720 Q 400 420 760 720 T 1560 620" fill="none" stroke="#6366f1" stroke-width="1.5" opacity="0.06" />
+  <rect width="1440" height="600" fill="url(#g1)"/>
+  <rect width="1440" height="600" fill="url(#grid)"/>
+  <circle cx="1200" cy="100" r="200" fill="#7dd3fc" opacity="0.08"/>
+  <circle cx="200" cy="500" r="250" fill="#38bdf8" opacity="0.06"/>
 </svg>

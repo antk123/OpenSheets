@@ -1,0 +1,201 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import TemplateIcon from '@/components/TemplateIcon.astro';
+import { templates, categories } from '@/data/templates';
+import { siteUrl } from '@/lib/utils';
+
+const categoryId = 'business';
+const category = categories.find(c => c.id === categoryId)!;
+const categoryTemplates = templates.filter(t => t.category === categoryId);
+
+const title = 'Free Business Tools — Invoicing, Petty Cash, A/R, A/P | Open Sheets';
+const description = 'Free Excel templates for UK businesses: VAT invoices, petty cash logs, accounts receivable and payable ledgers. Professional, HMRC-compliant, ready to use.';
+
+const softwareAppSchemas = categoryTemplates.map((t) => ({
+  '@type': 'SoftwareApplication',
+  name: t.name,
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Excel, Google Sheets, LibreOffice',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'GBP' },
+  url: `${siteUrl}/templates/${t.id}`,
+  description: t.description,
+}));
+
+const otherCategories = categories.filter(c => c.id !== 'all' && c.id !== categoryId);
+---
+
+<Layout title={title} description={description} jsonLd={softwareAppSchemas}>
+  <div class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="flex text-sm text-slate-500">
+        <a href="/" class="hover:text-sky-700 transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <span class="text-slate-900 font-medium">Business Tools</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-rose-100 text-rose-700 mb-4">Free Templates</span>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 leading-tight">
+        Business Tool <span class="text-sky-700">Templates</span>
+      </h1>
+      <p class="text-lg text-slate-600 max-w-2xl mb-6">
+        Professional invoices, petty cash control, and customer/supplier ledgers. The operational tools that keep your business running smoothly — and looking professional.
+      </p>
+      <div class="flex flex-wrap gap-3 text-sm text-slate-500">
+        <span class="inline-flex items-center gap-1">
+          <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          {categoryTemplates.length} free templates
+        </span>
+        <span class="inline-flex items-center gap-1">
+          <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          HMRC VAT-compliant invoices
+        </span>
+        <span class="inline-flex items-center gap-1">
+          <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Professional print-ready layouts
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {categoryTemplates.map((template) => (
+          <a
+            href={`/templates/${template.id}`}
+            class="group bg-slate-50 rounded-xl p-6 border border-slate-200 hover:border-sky-300 hover:shadow-md transition-all"
+          >
+            <div class={`w-12 h-12 rounded-xl ${template.color} flex items-center justify-center text-white mb-4`}>
+              <TemplateIcon icon={template.icon} class="w-6 h-6" />
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-2 group-hover:text-sky-700 transition-colors">{template.name}</h3>
+            <p class="text-sm text-slate-600 mb-4 line-clamp-2">{template.description}</p>
+            <ul class="space-y-1.5">
+              {template.features.slice(0, 3).map((feature) => (
+                <li class="flex items-start gap-2 text-xs text-slate-500">
+                  <svg class="w-3.5 h-3.5 text-sky-700 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="mt-4 pt-4 border-t border-slate-200 flex items-center text-sm font-medium text-sky-700">
+              View template
+              <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50 border-y border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">Run Your Business Professionally</h2>
+          <p class="text-slate-600 mb-6">
+            First impressions matter. An HMRC-compliant invoice, a tidy petty cash system, and organised customer/supplier records signal that you run a proper business — not a side hustle. These tools help you look credible, get paid faster, and maintain relationships.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-sky-700 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span class="text-slate-600">Professional invoices that get you paid faster</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-sky-700 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span class="text-slate-600">Petty cash control that stops money leaking away</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-sky-700 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span class="text-slate-600">A/R and A/P tracking for healthy cash flow</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="font-semibold text-slate-900 mb-4">The Cost of Poor Business Tools</h3>
+          <ul class="space-y-3 text-sm text-slate-600">
+            <li class="flex items-start gap-2"><span class="text-rose-500 font-bold">£</span> Late payments because invoices look unprofessional</li>
+            <li class="flex items-start gap-2"><span class="text-rose-500 font-bold">£</span> Petty cash leakage — £5-£10/week adds up to £500+/year</li>
+            <li class="flex items-start gap-2"><span class="text-rose-500 font-bold">£</span> Unpaid invoices because you did not know they were overdue</li>
+            <li class="flex items-start gap-2"><span class="text-rose-500 font-bold">£</span> Late payment fees from suppliers you forgot to pay</li>
+            <li class="flex items-start gap-2"><span class="text-rose-500 font-bold">£</span> HMRC penalties for non-compliant VAT invoices</li>
+          </ul>
+          <p class="text-xs text-slate-400 mt-4">Our free templates fix all of these. Zero cost, immediate impact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-sky-100 text-sky-700 mb-4">FAQ</span>
+        <h2 class="text-2xl font-bold text-slate-900 mb-2">Business Tool Questions</h2>
+      </div>
+      <div class="space-y-4">
+        <details class="group bg-slate-50 rounded-lg border border-slate-200">
+          <summary class="flex justify-between items-center cursor-pointer p-4 font-medium text-slate-900">
+            Is the invoice template legally compliant for UK VAT?
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-slate-600">
+            Yes. The <a href="/templates/invoice-template" class="text-sky-700 hover:underline">VAT Invoice Template</a> includes all mandatory fields required by HMRC for a valid VAT invoice: your business name and address, VAT number, invoice date and number, customer details, description of goods/services, quantity, unit price, VAT rate, and total amount including VAT.
+          </div>
+        </details>
+        <details class="group bg-slate-50 rounded-lg border border-slate-200">
+          <summary class="flex justify-between items-center cursor-pointer p-4 font-medium text-slate-900">
+            How do I handle partial payments in the A/R ledger?
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-slate-600">
+            Record the partial payment against the invoice in the <a href="/templates/accounts-receivable" class="text-sky-700 hover:underline">A/R Ledger</a>. The template shows the remaining balance. When the final payment comes in, record that too. The invoice will show as fully paid.
+          </div>
+        </details>
+        <details class="group bg-slate-50 rounded-lg border border-slate-200">
+          <summary class="flex justify-between items-center cursor-pointer p-4 font-medium text-slate-900">
+            Do I really need a petty cash log?
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-slate-600">
+            If you keep cash on hand for small expenses, yes. Petty cash is where money disappears unnoticed. A proper <a href="/templates/petty-cash" class="text-sky-700 hover:underline">log</a> makes every penny accountable and provides the records HMRC expects if they ask.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50 border-y border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl font-bold text-slate-900 mb-2">Explore Other Categories</h2>
+        <p class="text-slate-600">More free templates for your business</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {otherCategories.map((cat) => (
+          <a
+            href={`/${cat.id === 'core' ? 'core-bookkeeping' : cat.id === 'tax' ? 'tax-vat' : cat.id === 'reports' ? 'financial-reports' : cat.id === 'property' ? 'landlord-property' : cat.id}`}
+            class="group bg-white rounded-xl p-5 border border-slate-200 hover:border-sky-300 hover:shadow-md transition-all text-center"
+          >
+            <h3 class="font-semibold text-slate-900 group-hover:text-sky-700 transition-colors">{cat.label}</h3>
+            <p class="text-xs text-slate-500 mt-1">{templates.filter(t => t.category === cat.id).length} templates</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-sky-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Look Professional, Get Paid Faster</h2>
+      <p class="text-lg text-sky-100 mb-8">Free business tools that help you operate like the serious business you are.</p>
+      <a href="/templates" class="inline-flex items-center justify-center bg-white text-sky-700 hover:bg-sky-50 h-14 px-8 text-base font-semibold rounded-lg transition-colors">
+        Browse All Templates
+      </a>
+      <p class="text-sm text-sky-200 mt-6">Free downloads, no email required. Works in Excel and Google Sheets.</p>
+    </div>
+  </section>
+</Layout>

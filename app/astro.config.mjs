@@ -1,30 +1,19 @@
 import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
-import rehypeSlug from 'rehype-slug';
+import react from '@astrojs/react';
 
-// https://astro.build/config
 export default defineConfig({
   site: 'https://opensheets.co.uk',
+  output: 'static',
   integrations: [
-    tailwind({
-      applyBaseStyles: false,
-    }),
+    tailwind(),
     react(),
-    mdx({
-      rehypePlugins: [rehypeSlug],
-    }),
-    sitemap(),
   ],
-  prefetch: {
-    prefetchAll: true,
-  },
-  devToolbar: {
-    enabled: false,
-  },
-  build: {
-    format: 'directory',
+  vite: {
+    resolve: {
+      alias: {
+        '@': '/src',
+      },
+    },
   },
 });

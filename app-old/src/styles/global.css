@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 199 89% 48%;
+    --radius: 0.625rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.025em;
+  }
+}
+
+@layer utilities {
+  .prose-content p {
+    @apply text-slate-600 leading-relaxed mb-4;
+  }
+
+  .prose-content ul {
+    @apply list-disc pl-5 mb-4 space-y-1 text-slate-600;
+  }
+
+  .prose-content ol {
+    @apply list-decimal pl-5 mb-4 space-y-1 text-slate-600;
+  }
+
+  .prose-content strong {
+    @apply font-semibold text-slate-900;
+  }
+
+  .prose-content h2 {
+    @apply text-2xl font-bold text-slate-900 mt-10 mb-4;
+  }
+
+  .prose-content h3 {
+    @apply text-xl font-semibold text-slate-900 mt-8 mb-3;
+  }
+
+  .prose-content table {
+    @apply w-full text-sm border-collapse mb-4;
+  }
+
+  .prose-content th {
+    @apply text-left px-4 py-3 font-semibold text-slate-700 bg-slate-100 border-b border-slate-200;
+  }
+
+  .prose-content td {
+    @apply px-4 py-3 text-slate-600 border-b border-slate-100;
+  }
+}

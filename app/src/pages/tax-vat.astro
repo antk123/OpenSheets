@@ -1,0 +1,201 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import TemplateIcon from '@/components/TemplateIcon.astro';
+import { templates, categories } from '@/data/templates';
+import { siteUrl } from '@/lib/utils';
+
+const categoryId = 'tax';
+const category = categories.find(c => c.id === categoryId)!;
+const categoryTemplates = templates.filter(t => t.category === categoryId);
+
+const title = 'Free Tax & VAT Templates for UK Businesses | Open Sheets';
+const description = 'Free Excel templates for VAT returns, mileage logs, and home office expenses. HMRC-aligned calculations for UK sole traders, landlords, and small businesses.';
+
+const softwareAppSchemas = categoryTemplates.map((t) => ({
+  '@type': 'SoftwareApplication',
+  name: t.name,
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Excel, Google Sheets, LibreOffice',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'GBP' },
+  url: `${siteUrl}/templates/${t.id}`,
+  description: t.description,
+}));
+
+const otherCategories = categories.filter(c => c.id !== 'all' && c.id !== categoryId);
+---
+
+<Layout title={title} description={description} jsonLd={softwareAppSchemas}>
+  <div class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <nav class="flex text-sm text-slate-500">
+        <a href="/" class="hover:text-sky-700 transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <span class="text-slate-900 font-medium">Tax & VAT</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-purple-100 text-purple-700 mb-4">Free Templates</span>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 leading-tight">
+        Tax & VAT <span class="text-sky-700">Templates</span>
+      </h1>
+      <p class="text-lg text-slate-600 max-w-2xl mb-6">
+        VAT returns, mileage claims, home office expenses — all calculated with HMRC-approved rates and categories. Get your tax right and keep more of what you earn.
+      </p>
+      <div class="flex flex-wrap gap-3 text-sm text-slate-500">
+        <span class="inline-flex items-center gap-1">
+          <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          {categoryTemplates.length} free templates
+        </span>
+        <span class="inline-flex items-center gap-1">
+          <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          HMRC-approved rates
+        </span>
+        <span class="inline-flex items-center gap-1">
+          <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          No signup required
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {categoryTemplates.map((template) => (
+          <a
+            href={`/templates/${template.id}`}
+            class="group bg-slate-50 rounded-xl p-6 border border-slate-200 hover:border-sky-300 hover:shadow-md transition-all"
+          >
+            <div class={`w-12 h-12 rounded-xl ${template.color} flex items-center justify-center text-white mb-4`}>
+              <TemplateIcon icon={template.icon} class="w-6 h-6" />
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-2 group-hover:text-sky-700 transition-colors">{template.name}</h3>
+            <p class="text-sm text-slate-600 mb-4 line-clamp-2">{template.description}</p>
+            <ul class="space-y-1.5">
+              {template.features.slice(0, 3).map((feature) => (
+                <li class="flex items-start gap-2 text-xs text-slate-500">
+                  <svg class="w-3.5 h-3.5 text-sky-700 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="mt-4 pt-4 border-t border-slate-200 flex items-center text-sm font-medium text-sky-700">
+              View template
+              <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50 border-y border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">Get Your Tax Right — Every Time</h2>
+          <p class="text-slate-600 mb-6">
+            Tax mistakes are expensive. HMRC penalties, interest charges, and the stress of an investigation can cost far more than getting it right from the start. Our templates use HMRC-approved rates and categories so you claim everything you are entitled to — and nothing you are not.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-sky-700 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span class="text-slate-600">2024/25 HMRC mileage rates built in (45p/25p per mile)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-sky-700 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span class="text-slate-600">VAT Return Box 1-9 calculations — Standard and Flat Rate</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-sky-700 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span class="text-slate-600">Home office simplified vs actual cost comparison</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="font-semibold text-slate-900 mb-4">Common Tax Mistakes to Avoid</h3>
+          <ul class="space-y-3 text-sm text-slate-600">
+            <li class="flex items-start gap-2"><span class="text-rose-500 font-bold">✗</span> Claiming commuting as business mileage</li>
+            <li class="flex items-start gap-2"><span class="text-rose-500 font-bold">✗</span> Forgetting to apportion home expenses correctly</li>
+            <li class="flex items-start gap-2"><span class="text-rose-500 font-bold">✗</span> Missing VAT on Flat Rate Scheme calculations</li>
+            <li class="flex items-start gap-2"><span class="text-rose-500 font-bold">✗</span> Not keeping mileage logs and losing £100s in claims</li>
+            <li class="flex items-start gap-2"><span class="text-rose-500 font-bold">✗</span> Claiming personal expenses as business costs</li>
+          </ul>
+          <p class="text-xs text-slate-400 mt-4">Our templates help you avoid all of these — with clear guidance built in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-sky-100 text-sky-700 mb-4">FAQ</span>
+        <h2 class="text-2xl font-bold text-slate-900 mb-2">Tax & VAT Questions</h2>
+      </div>
+      <div class="space-y-4">
+        <details class="group bg-slate-50 rounded-lg border border-slate-200">
+          <summary class="flex justify-between items-center cursor-pointer p-4 font-medium text-slate-900">
+            Should I use the Standard VAT scheme or Flat Rate?
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-slate-600">
+            It depends on your business. The <a href="/templates/vat-return" class="text-sky-700 hover:underline">VAT Return Calculator</a> lets you model both. Generally, Flat Rate is simpler and better for service businesses with low VAT-able expenses. Standard VAT is better if you have significant VAT-able purchases to reclaim.
+          </div>
+        </details>
+        <details class="group bg-slate-50 rounded-lg border border-slate-200">
+          <summary class="flex justify-between items-center cursor-pointer p-4 font-medium text-slate-900">
+            How much can I claim for business mileage?
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-slate-600">
+            HMRC approves 45p per mile for the first 10,000 business miles in a tax year, and 25p per mile after that. This covers fuel, maintenance, insurance, and depreciation. Our <a href="/templates/mileage-log" class="text-sky-700 hover:underline">Mileage Log</a> tracks this automatically.
+          </div>
+        </details>
+        <details class="group bg-slate-50 rounded-lg border border-slate-200">
+          <summary class="flex justify-between items-center cursor-pointer p-4 font-medium text-slate-900">
+            What is the best way to claim home office expenses?
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-4 pb-4 text-sm text-slate-600">
+            HMRC offers two methods: a simplified flat rate (£10-£26/month based on hours worked) or actual cost apportionment. The <a href="/templates/home-office" class="text-sky-700 hover:underline">Home Office Calculator</a> does both and tells you which is higher — often the actual cost method saves significantly more.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50 border-y border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl font-bold text-slate-900 mb-2">Explore Other Categories</h2>
+        <p class="text-slate-600">More free templates for your business</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {otherCategories.map((cat) => (
+          <a
+            href={`/${cat.id === 'core' ? 'core-bookkeeping' : cat.id === 'reports' ? 'financial-reports' : cat.id === 'property' ? 'landlord-property' : cat.id === 'business' ? 'business-tools' : cat.id}`}
+            class="group bg-white rounded-xl p-5 border border-slate-200 hover:border-sky-300 hover:shadow-md transition-all text-center"
+          >
+            <h3 class="font-semibold text-slate-900 group-hover:text-sky-700 transition-colors">{cat.label}</h3>
+            <p class="text-xs text-slate-500 mt-1">{templates.filter(t => t.category === cat.id).length} templates</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-sky-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Stop Overpaying Tax</h2>
+      <p class="text-lg text-sky-100 mb-8">Our free templates ensure you claim every penny you are entitled to — while staying fully HMRC compliant.</p>
+      <a href="/templates" class="inline-flex items-center justify-center bg-white text-sky-700 hover:bg-sky-50 h-14 px-8 text-base font-semibold rounded-lg transition-colors">
+        Browse All Templates
+      </a>
+      <p class="text-sm text-sky-200 mt-6">Free downloads, no email required. Works in Excel and Google Sheets.</p>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,92 @@
+---
+import { getCollection } from 'astro:content';
+
+const allGuides = await getCollection('guides');
+const topGuides = allGuides.slice(0, 4);
+---
+
+<footer class="bg-white border-t border-slate-200 text-slate-600">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-2.5 mb-4">
+          <div class="w-9 h-9 rounded-lg bg-sky-700 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <span class="text-lg font-bold text-slate-900">Open Sheets</span>
+        </div>
+        <p class="text-sm text-slate-500 leading-relaxed mb-4">
+          Free UK bookkeeping spreadsheets and plain-English guides for small business owners, sole traders, and landlords. No subscriptions, no jargon.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {['Sole Traders', 'Self-Employed', 'Landlords', 'Freelancers', 'Small Businesses'].map((tag) => (
+            <span class="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">{tag}</span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Navigate -->
+      <div>
+        <h2 class="text-slate-900 font-semibold text-sm uppercase tracking-wider mb-4">Navigate</h2>
+        <ul class="space-y-2.5">
+          {[
+            { label: 'Home', href: '/' },
+            { label: 'All Templates', href: '/templates' },
+            { label: 'Guides', href: '/guides' },
+            { label: 'Why Spreadsheets?', href: '/about' },
+            { label: 'How to Use', href: '/how-to-use' },
+          ].map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-slate-500 hover:text-sky-700 transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Popular Guides -->
+      <div>
+        <h2 class="text-slate-900 font-semibold text-sm uppercase tracking-wider mb-4">Popular Guides</h2>
+        <ul class="space-y-2.5">
+          {topGuides.map((guide) => (
+            <li>
+              <a href={`/guides/${guide.slug}`} class="text-sm text-slate-500 hover:text-sky-700 transition-colors">
+                {guide.data.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Get Started -->
+      <div>
+        <h2 class="text-slate-900 font-semibold text-sm uppercase tracking-wider mb-4">Get Started</h2>
+        <p class="text-sm text-slate-500 mb-4">
+          Download all 16 templates free. Start organising your business finances today.
+        </p>
+        <a
+          href="/templates"
+          class="inline-flex items-center gap-2 bg-sky-700 hover:bg-sky-800 text-white px-4 py-2.5 rounded-lg text-sm font-medium transition-colors"
+        >
+          Browse Templates
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-200 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-xs text-slate-500">
+        &copy; 2025 Open Sheets. All templates and guides are free to use for your business.
+      </p>
+      <p class="text-xs text-slate-500">
+        Designed for UK small businesses, sole traders, and landlords. Not professional financial advice.
+      </p>
+    </div>
+  </div>
+</footer>

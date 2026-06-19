@@ -1,0 +1,193 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const title = 'How to Use Our Bookkeeping Templates | Open Sheets';
+const description = 'A quick guide to downloading, customising and using your free UK bookkeeping spreadsheets. From first download to tax return submission.';
+
+const steps = [
+  {
+    badge: 'Download',
+    title: 'Download Your Template',
+    intro: 'Browse our templates and click the download button on any card. The file will save to your Downloads folder as an .xlsx file. This format works with:',
+    apps: [
+      { name: 'Microsoft Excel 2010 or newer', note: 'Desktop or Office 365' },
+      { name: 'Google Sheets', note: 'Free with Google account — upload and convert' },
+      { name: 'LibreOffice Calc', note: 'Free, open-source alternative' },
+      { name: 'Apple Numbers', note: 'May need to convert format' },
+    ],
+    tip: 'When you first open the file in Excel, you may see a yellow bar saying "Protected View". Click Enable Editing to use the template.',
+  },
+  {
+    badge: 'Personalise',
+    title: 'Add Your Business Details',
+    intro: 'Most templates have a "Welcome" or "Setup" sheet with instructions. Start by customising the template for your business:',
+    checklist: [
+      'Replace placeholder business names with your own',
+      'Set your financial year (our templates default to UK tax year: April - March)',
+      'Add your bank account names if using multi-account templates',
+      'Customise income and expense categories to match your business',
+      'Delete example data (highlighted or in separate example sheets)',
+    ],
+  },
+  {
+    badge: 'Record',
+    title: 'Enter Your Transactions',
+    intro: 'The key to good bookkeeping is consistency. We recommend recording transactions weekly, but find a rhythm that works for you:',
+    bestPractices: [
+      { title: 'Record in date order', desc: 'Enter transactions chronologically. This makes bank reconciliation much easier.' },
+      { title: 'Be consistent with categories', desc: 'Always use the same category for the same type of expense. Do not use "Office Supplies" one month and "Stationery" the next.' },
+      { title: 'Include a description', desc: 'Write clear descriptions. "Staples - printer paper" is better than "Shop purchase".' },
+      { title: 'Keep receipts', desc: 'File every receipt. HMRC can ask to see them up to 5 years after the tax year.' },
+      { title: 'Reconcile monthly', desc: 'Match your spreadsheet to your bank statement at the end of each month. It takes 10 minutes and catches errors early.' },
+    ],
+  },
+  {
+    badge: 'Review',
+    title: 'Check Your Summary Reports',
+    intro: 'Our templates automatically calculate summary reports from your transaction data. Check these regularly to understand your business performance:',
+    reports: [
+      { title: 'Profit & Loss Summary', desc: 'Shows total income, total expenses, and net profit/loss. Check this monthly.' },
+      { title: 'Bank Reconciliation', desc: 'Compares your spreadsheet balance to your actual bank balance. Should match to the penny.' },
+      { title: 'Expense Breakdown', desc: 'See where your money goes. Useful for identifying areas to cut costs.' },
+      { title: 'Tax Estimate', desc: 'Our Self-Employed template estimates your tax bill. Set this money aside monthly.' },
+    ],
+  },
+  {
+    badge: 'Tax Time',
+    title: 'Submit Your Tax Return',
+    intro: 'When it is time for Self Assessment (deadline: 31 January), your spreadsheet summaries will have all the figures you need:',
+    checklist: [
+      'Total turnover (income) from your Summary sheet',
+      'Total expenses by category — enter these in the relevant boxes',
+      'Capital allowances for equipment purchases over £1,000',
+      'Mileage claim total from your Mileage Log',
+      'Home office calculation from your Home Office sheet',
+      'Bank interest received (for the SA100 form)',
+    ],
+    warning: 'Important Dates: 5 April is the end of the tax year. 31 January is the online Self Assessment deadline. 31 October is the paper return deadline. Missing the deadline results in an automatic £100 fine.',
+  },
+  {
+    badge: 'Backup',
+    title: 'Save and Back Up Regularly',
+    intro: 'Your financial records are precious. Protect them:',
+    checklist: [
+      'Save your file with a clear name: "BusinessName_2025-26_CashBook.xlsx"',
+      'Back up to cloud storage (Google Drive, Dropbox, OneDrive) weekly',
+      'Keep a copy on a USB drive as well',
+      'Do not rely on a single location — computers fail, files corrupt',
+      'Keep records for at least 5 years after the tax year (HMRC requirement)',
+    ],
+  },
+];
+
+const faqs = [
+  { q: 'Do I need to know Excel to use these?', a: 'Basic knowledge helps, but our templates are designed for beginners. You mainly need to know how to type into cells and save a file. Each template includes a Welcome sheet with step-by-step instructions.' },
+  { q: 'Are these suitable for limited companies?', a: 'Yes, most templates work for limited companies too. However, if you are VAT-registered with complex requirements, you may eventually need software. Use our templates to get started and understand your finances first.' },
+  { q: 'Will my accountant accept these?', a: 'Absolutely. Accountants regularly work with spreadsheet-based bookkeeping. Our templates use standard accounting layouts and HMRC-recognised categories. Your accountant will likely appreciate the clarity.' },
+  { q: 'Can I use these with Google Sheets?', a: 'Yes. Upload the .xlsx file to Google Drive and open with Google Sheets. Most formulas will work. Some formatting may look slightly different, but all functionality is preserved.' },
+  { q: 'What if I make a mistake?', a: 'That is the beauty of spreadsheets — everything is editable. If you delete a formula by accident, just re-download the template. We recommend keeping a backup copy of the blank template for reference.' },
+  { q: 'How often should I update my spreadsheet?', a: 'Weekly is ideal. At minimum, monthly. The key is consistency. A 10-minute weekly session is far easier (and more accurate) than a 3-hour marathon at year-end.' },
+];
+---
+
+<Layout title={title} description={description}>
+  <section class="bg-sky-700 py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">How to Use Our Templates</h1>
+      <p class="text-lg text-sky-100 max-w-2xl mx-auto">
+        A quick guide to getting the most out of your bookkeeping spreadsheets. From downloading to tax return submission.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {steps.map((step, idx) => (
+        <div class="mb-16">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center text-lg font-bold">{idx + 1}</div>
+            <div>
+              <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-sky-100 text-sky-700 mb-1">{step.badge}</span>
+              <h2 class="text-2xl font-bold text-slate-900">{step.title}</h2>
+            </div>
+          </div>
+          <div class="pl-16">
+            <p class="text-slate-600 leading-relaxed mb-4">{step.intro}</p>
+            {step.apps && (
+              <div class="grid sm:grid-cols-2 gap-4 mb-6">
+                {step.apps.map((app) => (
+                  <div class="flex items-center gap-3 bg-slate-50 rounded-lg p-4">
+                    <svg class="w-5 h-5 text-sky-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div>
+                      <p class="text-sm font-medium text-slate-900">{app.name}</p>
+                      <p class="text-xs text-slate-500">{app.note}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+            {step.checklist && (
+              <ul class="space-y-2.5 mb-6">
+                {step.checklist.map((item) => (
+                  <li class="flex items-start gap-3 text-sm text-slate-600">
+                    <svg class="w-5 h-5 text-sky-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {step.bestPractices && (
+              <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 mb-6">
+                <h3 class="font-semibold text-slate-900 mb-4">Best Practices</h3>
+                <div class="space-y-4">
+                  {step.bestPractices.map((item) => (
+                    <div>
+                      <p class="text-sm font-medium text-slate-900">{item.title}</p>
+                      <p class="text-sm text-slate-500">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            {step.reports && (
+              <div class="grid sm:grid-cols-2 gap-4 mb-6">
+                {step.reports.map((item) => (
+                  <div class="bg-sky-50 rounded-lg p-4 border border-sky-100">
+                    <h3 class="text-sm font-semibold text-slate-900 mb-1">{item.title}</h3>
+                    <p class="text-xs text-slate-600">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+            {step.tip && (
+              <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                <p class="text-sm text-amber-800"><strong>Tip:</strong> {step.tip}</p>
+              </div>
+            )}
+            {step.warning && (
+              <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                <p class="text-sm text-amber-800"><strong>{step.warning.split(':')[0]}:</strong> {step.warning.split(':').slice(1).join(':')}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+
+      <div class="bg-slate-50 rounded-2xl p-8">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
+        <div class="space-y-6">
+          {faqs.map((faq) => (
+            <div>
+              <h3 class="font-semibold text-slate-900 mb-1">{faq.q}</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
