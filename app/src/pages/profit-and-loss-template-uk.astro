@@ -1,0 +1,99 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'Profit and Loss Template UK — Free P&L Statement for Small Business';
+const description = 'Free UK profit and loss statement template. Auto-calculates gross profit, net profit, and margins. HMRC-compatible expense categories. No signup required.';
+const canonical = '/profit-and-loss-template-uk';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: `${siteUrl}${canonical}`,
+};
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      <div class="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+        Financial Reports
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-4">
+        Profit and Loss Template UK <span class="text-sky-700">(Free Download)</span>
+      </h1>
+      <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+        Free P&L statement template for UK small businesses. Auto-calculates your gross profit, operating profit, and net profit. Built with HMRC expense categories.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">What Is a Profit and Loss Statement?</h2>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            A Profit and Loss (P&L) statement shows whether your business made money or lost money over a period of time. It's the single most important financial report for any small business — and HMRC expects you to be able to produce one.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            For sole traders, your P&L is essentially what goes on the SA103 Self Employment pages of your tax return. Knowing your numbers isn't just for tax — it's how you make better business decisions.
+          </p>
+          <h3 class="text-lg font-semibold text-slate-900 mb-3">What Our Template Calculates</h3>
+          <ul class="space-y-2 text-slate-600">
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Gross Profit:</strong> Revenue minus cost of sales</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Operating Profit:</strong> Gross profit minus operating expenses</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Net Profit:</strong> Operating profit minus tax and interest</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-sky-700 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Profit Margin:</strong> Net profit as % of revenue</li>
+          </ul>
+        </div>
+        <div class="bg-blue-50 rounded-xl p-6 border border-blue-200">
+          <h3 class="font-bold text-blue-900 mb-4">Get the P&L Template</h3>
+          <p class="text-sm text-blue-800 mb-4">Auto-calculating profit and loss statement. Just enter your income and expenses.</p>
+          <a href="/templates/profit-loss" class="w-full inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white font-medium px-6 py-3 rounded-lg transition-colors mb-3">
+            View P&L Template
+          </a>
+          <p class="text-xs text-blue-600 text-center">Free. No email required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">P&L Structure for UK Small Businesses</h2>
+      <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+        <table class="w-full text-sm">
+          <tbody>
+            <tr class="bg-slate-50 font-semibold"><td class="px-4 py-3" colspan="2">Revenue (Turnover)</td></tr>
+            <tr><td class="px-4 py-2 pl-8 text-slate-600">Sales of products/services</td><td class="px-4 py-2 text-right">£XX,XXX</td></tr>
+            <tr class="bg-slate-50 font-semibold"><td class="px-4 py-3" colspan="2">Less: Cost of Sales</td></tr>
+            <tr><td class="px-4 py-2 pl-8 text-slate-600">Materials, direct labour, delivery</td><td class="px-4 py-2 text-right">(£X,XXX)</td></tr>
+            <tr class="bg-emerald-50 font-bold"><td class="px-4 py-3 text-emerald-800">Gross Profit</td><td class="px-4 py-3 text-right text-emerald-800">£XX,XXX</td></tr>
+            <tr class="bg-slate-50 font-semibold"><td class="px-4 py-3" colspan="2">Less: Operating Expenses</td></tr>
+            <tr><td class="px-4 py-2 pl-8 text-slate-600">Rent, rates, utilities</td><td class="px-4 py-2 text-right">(£X,XXX)</td></tr>
+            <tr><td class="px-4 py-2 pl-8 text-slate-600">Marketing, insurance, professional fees</td><td class="px-4 py-2 text-right">(£X,XXX)</td></tr>
+            <tr><td class="px-4 py-2 pl-8 text-slate-600">Travel, staff costs, office expenses</td><td class="px-4 py-2 text-right">(£X,XXX)</td></tr>
+            <tr class="bg-sky-50 font-bold"><td class="px-4 py-3 text-sky-800">Operating Profit (EBIT)</td><td class="px-4 py-3 text-right text-sky-800">£XX,XXX</td></tr>
+            <tr class="bg-slate-50 font-semibold"><td class="px-4 py-3" colspan="2">Less: Interest and Tax</td></tr>
+            <tr><td class="px-4 py-2 pl-8 text-slate-600">Bank interest, loan interest</td><td class="px-4 py-2 text-right">(£XXX)</td></tr>
+            <tr><td class="px-4 py-2 pl-8 text-slate-600">Income Tax / Corporation Tax</td><td class="px-4 py-2 text-right">(£X,XXX)</td></tr>
+            <tr class="bg-slate-900 font-bold text-white"><td class="px-4 py-3">Net Profit</td><td class="px-4 py-3 text-right">£XX,XXX</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-sky-700">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Download Your Free P&L Template</h2>
+      <p class="text-sky-100 mb-8 max-w-2xl mx-auto">Know your numbers. Make better decisions. Pay the right amount of tax.</p>
+      <a href="/templates/profit-loss" class="inline-flex items-center justify-center bg-white hover:bg-sky-50 text-sky-700 font-semibold px-8 py-3 rounded-lg transition-colors">
+        Get the Template
+      </a>
+    </div>
+  </section>
+</Layout>

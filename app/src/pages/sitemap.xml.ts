@@ -21,6 +21,7 @@ export async function GET() {
     '/landlord-spreadsheet-uk',
     '/cash-book-template-uk',
     '/mileage-log-template-uk',
+    '/profit-and-loss-template-uk',
     '/blog/mtd-for-income-tax-2026',
     '/blog/self-assessment-guide-sole-traders',
     '/blog/landlord-tax-guide-2025-26',
