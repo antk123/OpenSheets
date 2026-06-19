@@ -1,0 +1,74 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'Timesheet Template UK — Free Excel Monthly Timesheet for Small Business';
+const description = 'Free UK timesheet template for small businesses. Track employee hours, calculate overtime, and sum weekly totals. Works in Excel and Google Sheets. No signup.';
+const canonical = '/timesheet-template-uk';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: `${siteUrl}${canonical}`,
+};
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      <div class="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+        Payroll
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-4">
+        Timesheet Template UK <span class="text-sky-700">(Free Download)</span>
+      </h1>
+      <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+        Free monthly timesheet template for UK small businesses. Track employee hours, breaks, and overtime. Auto-calculates totals. HMRC-compliant.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Why Timesheets Matter</h2>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            Accurate timesheets are essential for payroll, client billing, and legal compliance. Underpaying staff leads to disputes. Overpaying staff costs you money.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            Our template tracks daily hours, breaks, and overtime. It auto-calculates weekly and monthly totals, making payroll preparation fast and accurate.
+          </p>
+          <h3 class="text-lg font-semibold text-slate-900 mb-3">What Our Template Includes</h3>
+          <ul class="space-y-2 text-slate-600">
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Daily hours:</strong> Start time, end time, break duration</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Auto-calculations:</strong> Daily total, weekly total, monthly total</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Overtime tracking:</strong> Hours over standard working week</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Employee signature:</strong> Confirmation of accuracy</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Monthly summary:</strong> Total hours per employee</li>
+          </ul>
+        </div>
+        <div class="bg-purple-50 rounded-xl p-6 border border-purple-200">
+          <h3 class="font-bold text-purple-900 mb-4">Get the Timesheet</h3>
+          <p class="text-sm text-purple-800 mb-4">Track employee hours accurately. Auto-calculates daily, weekly, and monthly totals.</p>
+          <a href="/templates/timesheet" class="w-full inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white font-medium px-6 py-3 rounded-lg transition-colors mb-3">
+            View Timesheet Template
+          </a>
+          <p class="text-xs text-purple-600 text-center">Free. No email required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-sky-700">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Download Your Free Timesheet</h2>
+      <p class="text-sky-100 mb-8 max-w-2xl mx-auto">Accurate time tracking for accurate payroll. Simple and effective.</p>
+      <a href="/templates/timesheet" class="inline-flex items-center justify-center bg-white hover:bg-sky-50 text-sky-700 font-semibold px-8 py-3 rounded-lg transition-colors">
+        Get the Template
+      </a>
+    </div>
+  </section>
+</Layout>
