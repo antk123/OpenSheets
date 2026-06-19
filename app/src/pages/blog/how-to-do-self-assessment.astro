@@ -1,0 +1,130 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'How to Do Self Assessment — Complete Guide for UK Sole Traders';
+const description = 'Step-by-step guide to filing your UK Self Assessment tax return. What you need, common mistakes, and how to pay less tax. Free templates included.';
+const canonical = '/blog/how-to-do-self-assessment';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: `${siteUrl}${canonical}`,
+  datePublished: '2026-06-20',
+  author: { '@type': 'Organization', name: 'Open Sheets' },
+};
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+        Self Assessment Guide
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-4">
+        How to Do Self Assessment <span class="text-sky-700">(2025/26)</span>
+      </h1>
+      <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+        A complete, step-by-step guide to filing your UK Self Assessment tax return. What you need, when to file, common mistakes, and how to pay less tax.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-lg max-w-none">
+        <h2>Do You Need to File a Self Assessment?</h2>
+        <p>
+          You must file a Self Assessment tax return if any of these apply:
+        </p>
+        <ul>
+          <li>You're self-employed and your turnover is over £1,000</li>
+          <li>You're a landlord with rental income over £1,000</li>
+          <li>You have income over £100,000 from any source</li>
+          <li>You have capital gains over the annual exempt amount</li>
+          <li>You receive dividends over £500</li>
+          <li>You need to claim certain expenses or reliefs</li>
+        </ul>
+        <p>
+          <strong>Deadline:</strong> 31 January 2026 for the 2024/25 tax year. Miss it and you pay an automatic £100 penalty — even if you owe no tax.
+        </p>
+
+        <h2>What You'll Need</h2>
+        <p>Before you start, gather these documents:</p>
+        <ul>
+          <li><strong>UTR (Unique Taxpayer Reference)</strong> — 10-digit number from HMRC</li>
+          <li><strong>National Insurance number</strong></li>
+          <li><strong>Records of all income</strong> — invoices, bank statements, P60s, P45s</li>
+          <li><strong>Records of all expenses</strong> — receipts, mileage logs, home office calculations</li>
+          <li><strong>Student loan statements</strong> (if applicable)</li>
+          <li><strong>Charity donation records</strong> (for Gift Aid)</li>
+          <li><strong>Pension contribution records</strong></li>
+        </ul>
+
+        <h2>Step-by-Step Filing Process</h2>
+        <ol>
+          <li><strong>Register for Self Assessment</strong> if you haven't already (deadline: 5 October after the tax year ends)</li>
+          <li><strong>Log in to HMRC online</strong> with your Government Gateway ID</li>
+          <li><strong>Navigate to "Self Assessment"</strong> and start your return</li>
+          <li><strong>Fill in your income</strong> — employment, self-employment, property, dividends, etc.</li>
+          <li><strong>Claim your expenses</strong> — only business expenses, not personal</li>
+          <li><strong>Review your tax calculation</strong> — check the figures make sense</li>
+          <li><strong>Submit and pay</strong> — payment deadline is 31 January</li>
+        </ol>
+
+        <h2>Common Self Assessment Mistakes</h2>
+        <div class="bg-red-50 rounded-xl p-6 border border-red-200 my-6">
+          <h3 class="font-bold text-red-900 mb-3">Mistakes That Cost You Money</h3>
+          <ul class="text-red-800 text-sm space-y-2">
+            <li>• Forgetting to claim the £1,000 trading allowance (if you have no expenses)</li>
+            <li>• Claiming personal expenses as business expenses</li>
+            <li>• Not keeping records for 5 years</li>
+            <li>• Missing the 31 January deadline</li>
+            <li>• Not registering by 5 October</li>
+            <li>• Under-reporting income from multiple sources</li>
+          </ul>
+        </div>
+
+        <h2>How to Pay Less Tax (Legally)</h2>
+        <p>Every pound of expenses you claim reduces your tax bill. Here are the most commonly missed deductions:</p>
+        <ul>
+          <li><strong>Working from home:</strong> £6/week flat rate or actual costs</li>
+          <li><strong>Mileage:</strong> 45p/mile for first 10,000 miles, 25p after</li>
+          <li><strong>Professional subscriptions:</strong> Memberships related to your work</li>
+          <li><strong>Accountancy fees:</strong> The cost of doing your tax return</li>
+          <li><strong>Bank charges:</strong> Business account fees</li>
+          <li><strong>Marketing costs:</strong> Website, advertising, business cards</li>
+          <li><strong>Training:</strong> Courses that improve your existing skills</li>
+        </ul>
+        <p>
+          <strong>Tip:</strong> Our Self-Employed Income & Expense Log template categorises everything using HMRC's official expense categories, making your tax return much faster.
+        </p>
+
+        <h2>Payment Options</h2>
+        <p>You can pay HMRC by:</p>
+        <ul>
+          <li><strong>Direct Debit:</strong> Set up online for automatic payments</li>
+          <li><strong>Bank transfer:</strong> Use HMRC's bank details (allow 3 working days)</li>
+          <li><strong>Debit card:</strong> Instant online payment</li>
+          <li><strong>Cheque:</strong> Allow 3 working days (not recommended)</li>
+        </ul>
+        <p>
+          <strong>Payments on account:</strong> If your tax bill is over £1,000, HMRC will ask you to pay 50% in advance for next year. First payment: 31 January. Second payment: 31 July.
+        </p>
+
+        <h2>Get Our Free Self Assessment Templates</h2>
+        <p>Make next year's tax return easier with our free UK spreadsheet templates:</p>
+        <div class="not-prose">
+          <a href="/templates/self-employed-income-expense" class="inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white font-medium px-6 py-3 rounded-lg transition-colors mr-3">
+            Income & Expense Log
+          </a>
+          <a href="/templates/self-assessment" class="inline-flex items-center justify-center bg-slate-700 hover:bg-slate-800 text-white font-medium px-6 py-3 rounded-lg transition-colors">
+            Tax Calculator
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

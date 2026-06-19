@@ -29,11 +29,13 @@ export async function GET() {
     '/free-excel-templates-uk',
     '/tax-deadlines-2025-26',
     '/self-employed-tax-calculator-uk',
+    '/payslip-template-uk',
     '/blog/mtd-for-income-tax-2026',
     '/blog/vat-registration-guide',
     '/blog/cis-subcontractor-tax-guide',
     '/blog/self-assessment-guide-sole-traders',
     '/blog/landlord-tax-guide-2025-26',
+    '/blog/how-to-do-self-assessment',
     ...templates.map((t) => `/templates/${t.id}`),
     ...guides.map((g) => `/guides/${g.slug}`),
   ];
