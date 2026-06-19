@@ -20,6 +20,7 @@ export async function GET() {
     '/vat-return-spreadsheet-template-uk',
     '/landlord-spreadsheet-uk',
     '/cash-book-template-uk',
+    '/mileage-log-template-uk',
     '/blog/mtd-for-income-tax-2026',
     '/blog/self-assessment-guide-sole-traders',
     ...templates.map((t) => `/templates/${t.id}`),

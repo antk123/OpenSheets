@@ -1,0 +1,136 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'Mileage Log Template UK — HMRC-Compliant Vehicle Tracker (Free)';
+const description = 'Free UK mileage log template for sole traders and small businesses. Track business miles at HMRC rates (45p/25p). Auto-calculates tax deductions. No signup.';
+const canonical = '/mileage-log-template-uk';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: `${siteUrl}${canonical}`,
+};
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      <div class="inline-flex items-center gap-2 bg-sky-100 text-sky-700 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+        HMRC-Compliant
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-4">
+        Mileage Log Template UK <span class="text-sky-700">(Free Download)</span>
+      </h1>
+      <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+        Track business miles at HMRC's approved rates. Auto-calculates your mileage deduction for Self Assessment. Simple, compliant, and free.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Why You Need a Mileage Log</h2>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            If you use your personal vehicle for business travel, HMRC allows you to claim mileage at approved rates. For the 2025/26 tax year, the rates are:
+          </p>
+          <div class="bg-slate-50 rounded-xl p-6 border border-slate-200 mb-6">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="border-b border-slate-200">
+                  <th class="text-left py-2 font-semibold">Vehicle Type</th>
+                  <th class="text-left py-2 font-semibold">First 10,000 Miles</th>
+                  <th class="text-left py-2 font-semibold">After 10,000 Miles</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="py-2">Cars and vans</td><td class="py-2 font-semibold text-emerald-700">45p per mile</td><td class="py-2">25p per mile</td></tr>
+                <tr><td class="py-2">Motorcycles</td><td class="py-2 font-semibold text-emerald-700">24p per mile</td><td class="py-2">24p per mile</td></tr>
+                <tr><td class="py-2">Bicycles</td><td class="py-2 font-semibold text-emerald-700">20p per mile</td><td class="py-2">20p per mile</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            <strong>Example:</strong> You drive 8,000 business miles in your car. Your mileage deduction is 8,000 × 45p = <strong>£3,600</strong>. If you're a basic-rate taxpayer, that saves you <strong>£720</strong> in tax. If you're a higher-rate taxpayer, it saves you <strong>£1,440</strong>.
+          </p>
+          <h3 class="text-lg font-semibold text-slate-900 mb-3">What Counts as Business Travel?</h3>
+          <ul class="space-y-2 text-slate-600">
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Travel to meet clients or suppliers</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Travel between different work locations</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Travel to a temporary workplace</li>
+          </ul>
+          <h3 class="text-lg font-semibold text-slate-900 mb-3 mt-6">What Does NOT Count?</h3>
+          <ul class="space-y-2 text-slate-600">
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>Commuting to your regular place of work</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>Personal trips (even if you "pop by" a client)</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>Travel that is not "wholly and exclusively" for business</li>
+          </ul>
+        </div>
+        <div class="bg-sky-50 rounded-xl p-6 border border-sky-200">
+          <h3 class="font-bold text-sky-900 mb-4">Get the Mileage Log Template</h3>
+          <p class="text-sm text-sky-800 mb-4">Track every business journey. Auto-calculates your deduction at HMRC rates.</p>
+          <a href="/templates/mileage-log" class="w-full inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white font-medium px-6 py-3 rounded-lg transition-colors mb-3">
+            View Mileage Log Template
+          </a>
+          <p class="text-xs text-sky-600 text-center">Free. No email required.</p>
+          <div class="mt-6 pt-6 border-t border-sky-200">
+            <h4 class="font-semibold text-sky-900 text-sm mb-2">What the Template Includes</h4>
+            <ul class="text-sm text-sky-800 space-y-1">
+              <li>• Date, destination, and purpose fields</li>
+              <li>• Start and end odometer readings</li>
+              <li>• Auto-calculated business miles</li>
+              <li>• HMRC rate lookup (45p/25p)</li>
+              <li>• Monthly and annual totals</li>
+              <li>• Self Assessment SA103 box mapping</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">Mileage vs. Actual Vehicle Costs</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="font-bold text-slate-900 mb-3">Simplified Expenses (Mileage)</h3>
+          <ul class="space-y-2 text-sm text-slate-600">
+            <li>✅ Claim 45p/25p per mile</li>
+            <li>✅ No need to track fuel, insurance, repairs</li>
+            <li>✅ Simple record-keeping</li>
+            <li>✅ Best for low-mileage drivers</li>
+            <li>❌ Cannot claim actual vehicle costs</li>
+            <li>❌ May be less generous for high-mileage, expensive vehicles</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="font-bold text-slate-900 mb-3">Actual Costs Method</h3>
+          <ul class="space-y-2 text-sm text-slate-600">
+            <li>✅ Claim fuel, insurance, servicing, MOT, repairs</li>
+            <li>✅ Claim capital allowances on vehicle purchase</li>
+            <li>✅ Better for expensive vehicles or high mileage</li>
+            <li>❌ Must keep all receipts and records</li>
+            <li>❌ Must calculate business vs. personal split</li>
+            <li>❌ More complex record-keeping</li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-slate-600 mt-6 text-sm">You can switch between methods, but you must stick with one for the entire duration you own the vehicle. Once you claim actual costs, you cannot switch to simplified mileage for that vehicle.</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-sky-700">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Download Your Free Mileage Log</h2>
+      <p class="text-sky-100 mb-8 max-w-2xl mx-auto">Track business miles, auto-calculate deductions, and save hundreds on your tax bill.</p>
+      <a href="/templates/mileage-log" class="inline-flex items-center justify-center bg-white hover:bg-sky-50 text-sky-700 font-semibold px-8 py-3 rounded-lg transition-colors">
+        Get the Template
+      </a>
+    </div>
+  </section>
+</Layout>
