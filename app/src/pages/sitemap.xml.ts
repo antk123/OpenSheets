@@ -23,6 +23,7 @@ export async function GET() {
     '/mileage-log-template-uk',
     '/blog/mtd-for-income-tax-2026',
     '/blog/self-assessment-guide-sole-traders',
+    '/blog/landlord-tax-guide-2025-26',
     ...templates.map((t) => `/templates/${t.id}`),
     ...guides.map((g) => `/guides/${g.slug}`),
   ];

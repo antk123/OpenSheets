@@ -1,0 +1,173 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import FaqAccordion from '@/components/FaqAccordion.astro';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'Landlord Tax Guide UK 2025/26: What You Pay and How to Pay Less';
+const description = 'Complete guide to UK landlord tax for 2025/26. Income tax, Section 24 mortgage relief, allowable expenses, and tax-saving strategies. Updated for current rates.';
+const canonical = '/blog/landlord-tax-guide-2025-26';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  author: { '@type': 'Organization', name: 'Open Sheets' },
+  publisher: { '@type': 'Organization', name: 'Open Sheets', logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.svg` } },
+  datePublished: '2026-06-20',
+  dateModified: '2026-06-20',
+  url: `${siteUrl}${canonical}`,
+};
+
+const faq = [
+  {
+    question: 'Do landlords pay tax on rental income?',
+    answer: 'Yes. Rental income is taxable. You pay Income Tax on your net rental profit (income minus allowable expenses) at your marginal rate: 20% for basic rate, 40% for higher rate, 45% for additional rate.',
+  },
+  {
+    question: 'What is Section 24 and how does it affect landlords?',
+    answer: 'Section 24 (Finance Act 2015) removed the ability for landlords to deduct mortgage interest from rental income before tax. Since April 2020, you instead receive a 20% tax credit on mortgage interest paid. This costs higher-rate taxpayers significantly more.',
+  },
+  {
+    question: 'Can I claim expenses as a landlord?',
+    answer: 'Yes. Allowable expenses include letting agent fees, insurance, maintenance and repairs, ground rent, council tax (if you pay it), utilities (if you pay them), and replacement of domestic items. You cannot claim for capital improvements (e.g., adding an extension).',
+  },
+  {
+    question: 'Should I form a limited company for my rental property?',
+    answer: 'It depends. Limited companies pay Corporation Tax (25% for profits over £250k, 19% for small profits) instead of Income Tax. You also avoid Section 24 restrictions. However, transferring existing properties into a company triggers Stamp Duty and Capital Gains Tax. New purchases may benefit from company ownership.',
+  },
+  {
+    question: 'Do I need to register for MTD for Income Tax as a landlord?',
+    answer: 'Yes, if your gross property income is over £50,000/year from April 2026. You must keep digital records and submit quarterly updates to HMRC.',
+  },
+];
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <header class="mb-10">
+      <div class="flex items-center gap-3 mb-4 flex-wrap">
+        <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-amber-100 text-amber-700">Landlord Tax</span>
+        <span class="text-sm text-slate-500">20 June 2026</span>
+        <span class="text-sm text-slate-500">&middot; 12 min read</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-4">
+        Landlord Tax Guide UK 2025/26
+      </h1>
+      <p class="text-lg sm:text-xl text-slate-600 leading-relaxed">
+        Everything UK landlords need to know about tax in 2025/26. Income tax rates, Section 24 mortgage relief, allowable expenses, and strategies to reduce your tax bill.
+      </p>
+    </header>
+
+    <div class="prose-content">
+      <div class="bg-amber-50 border border-amber-200 rounded-xl p-6 mb-10">
+        <h2 class="text-lg font-bold text-amber-900 mb-2">🏠 At a Glance — 2025/26 Tax Rates</h2>
+        <ul class="space-y-2 text-amber-800 text-sm">
+          <li><strong>Personal Allowance:</strong> £12,570 (reduced by £1 for every £2 over £100k)</li>
+          <li><strong>Basic Rate (20%):</strong> £12,571 – £50,270</li>
+          <li><strong>Higher Rate (40%):</strong> £50,271 – £125,140</li>
+          <li><strong>Additional Rate (45%):</strong> Over £125,140</li>
+          <li><strong>Section 24 credit:</strong> 20% of mortgage interest (not a deduction)</li>
+        </ul>
+      </div>
+
+      <h2>How Is Rental Income Taxed?</h2>
+      <p>Rental income is treated as part of your total taxable income. You add your net rental profit (income minus allowable expenses) to your salary, dividends, and other income. The total is then taxed at your marginal rate.</p>
+      <p><strong>Example:</strong> You earn £40,000 from your job and £15,000 net rental profit. Your total income is £55,000. After the £12,570 Personal Allowance, £42,430 is taxable:</p>
+      <ul>
+        <li>£37,700 at 20% = £7,540</li>
+        <li>£4,730 at 40% = £1,892</li>
+        <li><strong>Total tax:</strong> £9,432 (plus National Insurance on employment income)</li>
+      </ul>
+
+      <h2>Section 24: The Game-Changer for Landlords</h2>
+      <p>Before April 2017, landlords could deduct mortgage interest from rental income before calculating tax. A higher-rate taxpayer with £20,000 rent and £8,000 mortgage interest only paid tax on £12,000.</p>
+      <p>Since April 2020, mortgage interest is <strong>not</strong> deductible. Instead, you receive a 20% tax credit on the interest paid.</p>
+      <p><strong>Same example today:</strong></p>
+      <ul>
+        <li>Taxable rental income: £20,000</li>
+        <li>Higher-rate tax (40%): £8,000</li>
+        <li>Tax credit (20% of £8,000): -£1,600</li>
+        <li><strong>Net tax:</strong> £6,400</li>
+      </ul>
+      <p>The difference? You now pay <strong>£2,400 more tax</strong> on the same property. This is why Section 24 has driven so many landlords to sell up or incorporate.</p>
+
+      <h2>Allowable Expenses for Landlords</h2>
+      <p>You can deduct any expense incurred "wholly and exclusively" for renting out your property:</p>
+      <table class="w-full text-sm border-collapse mb-6">
+        <thead>
+          <tr class="bg-slate-100">
+            <th class="text-left px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">Expense</th>
+            <th class="text-left px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">Allowable?</th>
+            <th class="text-left px-4 py-3 font-semibold text-slate-700 border-b border-slate-200">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="px-4 py-3 border-b border-slate-100">Letting agent fees</td><td class="px-4 py-3 border-b border-slate-100 text-emerald-700 font-semibold">Yes</td><td class="px-4 py-3 border-b border-slate-100">Including tenant-finding fees</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100">Insurance</td><td class="px-4 py-3 border-b border-slate-100 text-emerald-700 font-semibold">Yes</td><td class="px-4 py-3 border-b border-slate-100">Buildings, contents, rent guarantee</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100">Maintenance & repairs</td><td class="px-4 py-3 border-b border-slate-100 text-emerald-700 font-semibold">Yes</td><td class="px-4 py-3 border-b border-slate-100">Restoring, not improving</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100">Ground rent & service charges</td><td class="px-4 py-3 border-b border-slate-100 text-emerald-700 font-semibold">Yes</td><td class="px-4 py-3 border-b border-slate-100">If you pay them</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100">Council tax & utilities</td><td class="px-4 py-3 border-b border-slate-100 text-emerald-700 font-semibold">Yes</td><td class="px-4 py-3 border-b border-slate-100">If you pay them (e.g., void periods)</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100">Replacement domestic items</td><td class="px-4 py-3 border-b border-slate-100 text-emerald-700 font-semibold">Yes</td><td class="px-4 py-3 border-b border-slate-100">Like-for-like replacement only</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100">Accountancy fees</td><td class="px-4 py-3 border-b border-slate-100 text-emerald-700 font-semibold">Yes</td><td class="px-4 py-3 border-b border-slate-100">For tax return preparation</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100">Mortgage interest</td><td class="px-4 py-3 border-b border-slate-100 text-amber-700 font-semibold">Partial</td><td class="px-4 py-3 border-b border-slate-100">20% tax credit only</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100">Capital improvements</td><td class="px-4 py-3 border-b border-slate-100 text-red-700 font-semibold">No</td><td class="px-4 py-3 border-b border-slate-100">May reduce Capital Gains Tax on sale</td></tr>
+          <tr><td class="px-4 py-3 border-b border-slate-100">Your own labour</td><td class="px-4 py-3 border-b border-slate-100 text-red-700 font-semibold">No</td><td class="px-4 py-3 border-b border-slate-100">Unless you're a tradesperson</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Replacement of Domestic Items Relief</h2>
+      <p>If you replace a domestic item in a furnished or unfurnished property, you can claim the cost of the replacement (minus any amount received for the old item). The replacement must be a like-for-like item.</p>
+      <p><strong>Example:</strong> You replace a £300 fridge with a £400 fridge. You sell the old one for £50. Your claim is £400 - £50 = £350. If you upgraded to a £600 American-style fridge, you can only claim £350 (the cost of a like-for-like replacement) plus the £50 sale proceeds = £400 total.</p>
+
+      <h2>Should You Incorporate?</h2>
+      <p>Since Section 24, many landlords have considered moving properties into a limited company. Here's the breakdown:</p>
+      <h3>Pros of Company Ownership</h3>
+      <ul>
+        <li>Mortgage interest is fully deductible from Corporation Tax</li>
+        <li>Corporation Tax rates (19-25%) are lower than higher-rate Income Tax (40%)</li>
+        <li>Easier to pass shares to family members</li>
+        <li>Limited liability protection</li>
+      </ul>
+      <h3>Cons of Company Ownership</h3>
+      <ul>
+        <li>Transferring existing properties triggers Stamp Duty and Capital Gains Tax</li>
+        <li>Commercial mortgages have higher interest rates</li>
+        <li>Annual filing requirements (accounts, Corporation Tax, confirmation statement)</li>
+        <li>Extracting money from the company creates further tax (dividends, salary)</li>
+      </ul>
+      <p><strong>Bottom line:</strong> Incorporation makes sense for new purchases or portfolios where the tax saving exceeds the setup costs. For existing properties, the Stamp Duty and CGT hit often wipes out years of tax savings.</p>
+
+      <h2>Making Tax Digital for Landlords</h2>
+      <p>From April 2026, landlords with gross property income over £50,000 must join MTD for Income Tax. This means:</p>
+      <ul>
+        <li>Keeping digital records of income and expenses</li>
+        <li>Submitting quarterly updates to HMRC</li>
+        <li>Submitting an End of Period Statement</li>
+      </ul>
+      <p>The quarterly update only requires totals: total income, total expenses, net profit. A spreadsheet plus bridging software is a perfectly valid approach.</p>
+
+      <h2>Tax-Saving Strategies for Landlords</h2>
+      <h3>1. Maximise Allowable Expenses</h3>
+      <p>Track every penny. Letting agent fees, insurance, maintenance, and replacements all add up. Use our <a href="/templates/rental-property" class="text-sky-700 hover:underline">Rental Property Tracker</a> to make sure nothing gets missed.</p>
+      <h3>2. Use the Marriage Allowance</h3>
+      <p>If your total income is below the Personal Allowance (£12,570), you can transfer 10% of it to your spouse, saving them up to £252/year.</p>
+      <h3>3. Time Your Expenses</h3>
+      <p>If you're approaching a higher tax bracket, bringing forward expenses (e.g., doing maintenance in the current tax year) can keep you in the basic rate band.</p>
+      <h3>4. Consider a Property Management Company</h3>
+      <p>If you manage properties yourself, you can't claim for your own labour. But if you set up a property management company that charges a market-rate fee, the company can deduct its costs and you extract profits at lower tax rates.</p>
+
+      <div class="bg-slate-900 rounded-xl p-8 text-white my-10">
+        <h3 class="text-xl font-bold mb-3">Track Your Landlord Finances for Free</h3>
+        <p class="text-slate-300 mb-6">Our Rental Property Tracker handles income, expenses, Section 24 calculations, and MTD-ready summaries.</p>
+        <a href="/templates/rental-property" class="inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white font-medium px-6 py-3 rounded-lg transition-colors">
+          Download Free Template
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-slate-200">
+      <FaqAccordion items={faq} />
+    </div>
+  </article>
+</Layout>
