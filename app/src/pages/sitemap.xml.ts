@@ -26,6 +26,8 @@ export async function GET() {
     '/expense-tracker-template-uk',
     '/home-office-expenses-calculator-uk',
     '/invoice-template-uk',
+    '/free-excel-templates-uk',
+    '/tax-deadlines-2025-26',
     '/blog/mtd-for-income-tax-2026',
     '/blog/self-assessment-guide-sole-traders',
     '/blog/landlord-tax-guide-2025-26',

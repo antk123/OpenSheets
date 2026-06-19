@@ -1,0 +1,175 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'UK Tax Deadlines 2025/26 — Calendar for Self Assessment, VAT, and PAYE';
+const description = 'Complete UK tax deadline calendar for 2025/26. Self Assessment, VAT, PAYE, Corporation Tax, and MTD dates. Never miss a deadline again.';
+const canonical = '/tax-deadlines-2025-26';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: `${siteUrl}${canonical}`,
+};
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      <div class="inline-flex items-center gap-2 bg-red-100 text-red-700 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+        Tax Calendar
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-4">
+        UK Tax Deadlines 2025/26 <span class="text-sky-700">(Never Miss a Date)</span>
+      </h1>
+      <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+        Every key tax deadline for the 2025/26 tax year. Self Assessment, VAT, PAYE, Corporation Tax, and MTD. Bookmark this page — it could save you £100s in late filing penalties.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-8">Self Assessment Deadlines</h2>
+      <div class="space-y-4">
+        <div class="bg-red-50 rounded-xl p-6 border border-red-200">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <p class="text-sm font-semibold text-red-700 uppercase tracking-wide">31 January 2026</p>
+              <h3 class="text-lg font-bold text-slate-900">Online Self Assessment Deadline</h3>
+              <p class="text-slate-600 text-sm">File your 2024/25 tax return and pay any tax owed.</p>
+            </div>
+            <div class="text-right">
+              <p class="text-2xl font-bold text-red-700">£100</p>
+              <p class="text-xs text-red-600">Immediate penalty if late</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-amber-50 rounded-xl p-6 border border-amber-200">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <p class="text-sm font-semibold text-amber-700 uppercase tracking-wide">31 July 2026</p>
+              <h3 class="text-lg font-bold text-slate-900">Payment on Account (2nd)</h3>
+              <p class="text-slate-600 text-sm">Second payment on account for 2025/26.</p>
+            </div>
+            <div class="text-right">
+              <p class="text-2xl font-bold text-amber-700">3%</p>
+              <p class="text-xs text-amber-600">Interest on late payment</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-blue-50 rounded-xl p-6 border border-blue-200">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <p class="text-sm font-semibold text-blue-700 uppercase tracking-wide">5 April 2026</p>
+              <h3 class="text-lg font-bold text-slate-900">Tax Year End</h3>
+              <p class="text-slate-600 text-sm">2025/26 tax year ends. Gather your records.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <p class="text-sm font-semibold text-slate-600 uppercase tracking-wide">31 October 2026</p>
+              <h3 class="text-lg font-bold text-slate-900">Paper Tax Return Deadline</h3>
+              <p class="text-slate-600 text-sm">If you file by paper (not recommended — online is easier and later).</p>
+            </div>
+            <div class="text-right">
+              <p class="text-2xl font-bold text-slate-700">£100</p>
+              <p class="text-xs text-slate-500">Late filing penalty</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-8">VAT Deadlines</h2>
+      <div class="space-y-4">
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <p class="text-sm font-semibold text-slate-600 uppercase tracking-wide">7th of Each Month</p>
+              <h3 class="text-lg font-bold text-slate-900">Monthly VAT Return (if applicable)</h3>
+              <p class="text-slate-600 text-sm">Submit and pay VAT one month and 7 days after your period end.</p>
+            </div>
+            <div class="text-right">
+              <p class="text-2xl font-bold text-red-600">£400</p>
+              <p class="text-xs text-slate-500">Surcharge if late</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <p class="text-sm font-semibold text-slate-600 uppercase tracking-wide">7th of Jan, Apr, Jul, Oct</p>
+              <h3 class="text-lg font-bold text-slate-900">Quarterly VAT Return</h3>
+              <p class="text-slate-600 text-sm">Standard quarterly VAT filing. One month and 7 days after quarter end.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-8">PAYE & Payroll Deadlines</h2>
+      <div class="space-y-4">
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <p class="text-sm font-semibold text-slate-600 uppercase tracking-wide">19th of Each Month</p>
+              <h3 class="text-lg font-bold text-slate-900">PAYE Payment to HMRC</h3>
+              <p class="text-slate-600 text-sm">Pay income tax and NICs deducted from employees.</p>
+            </div>
+            <div class="text-right">
+              <p class="text-2xl font-bold text-slate-700">Penalties</p>
+              <p class="text-xs text-slate-500">Monthly interest and fines</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <p class="text-sm font-semibold text-slate-600 uppercase tracking-wide">19 April 2026</p>
+              <h3 class="text-lg font-bold text-slate-900">End of Year PAYE Return</h3>
+              <p class="text-slate-600 text-sm">Submit final PAYE return for 2025/26.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">MTD for Income Tax (New!)</h2>
+      <div class="bg-sky-50 rounded-xl p-6 border border-sky-200">
+        <p class="text-sky-800 mb-4">
+          From <strong>April 2026</strong>, sole traders and landlords with gross income over £50,000 must report quarterly under Making Tax Digital. The threshold drops to £30,000 in April 2027.
+        </p>
+        <p class="text-sky-800 text-sm">
+          <strong>Quarterly deadlines:</strong> 5 August, 5 November, 5 February, and 5 May (one month after quarter end).
+        </p>
+        <div class="mt-4">
+          <a href="/blog/mtd-for-income-tax-2026" class="text-sky-700 font-medium hover:text-sky-900 underline">Read our full MTD guide →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-sky-700">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Stay Organised with Free Templates</h2>
+      <p class="text-sky-100 mb-8 max-w-2xl mx-auto">Track your tax, manage your books, and never miss a deadline with our free UK spreadsheet templates.</p>
+      <a href="/templates" class="inline-flex items-center justify-center bg-white hover:bg-sky-50 text-sky-700 font-semibold px-8 py-3 rounded-lg transition-colors">
+        Browse Free Templates
+      </a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,112 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'Free Excel Templates UK — Download 50+ Spreadsheets for Small Business';
+const description = '50+ free Excel templates for UK small businesses, sole traders, and landlords. Bookkeeping, tax, VAT, payroll, landlord property, and financial reports. No signup.';
+const canonical = '/free-excel-templates-uk';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Bookkeeping', url: `${siteUrl}/core-bookkeeping` },
+    { '@type': 'ListItem', position: 2, name: 'Tax & VAT', url: `${siteUrl}/tax-vat` },
+    { '@type': 'ListItem', position: 3, name: 'Financial Reports', url: `${siteUrl}/financial-reports` },
+    { '@type': 'ListItem', position: 4, name: 'Payroll', url: `${siteUrl}/payroll` },
+    { '@type': 'ListItem', position: 5, name: 'Landlord & Property', url: `${siteUrl}/landlord-property` },
+  ],
+};
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      <div class="inline-flex items-center gap-2 bg-sky-100 text-sky-700 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+        Free Templates
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-4">
+        Free Excel Templates UK <span class="text-sky-700">(50+ Downloads)</span>
+      </h1>
+      <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+        The largest collection of free, UK-focused Excel templates for small businesses, sole traders, and landlords. Bookkeeping, tax, VAT, payroll, property — all in one place.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-8">Browse by Category</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="/core-bookkeeping" class="group bg-slate-50 rounded-xl p-6 border border-slate-200 hover:border-sky-300 hover:bg-sky-50 transition-colors">
+          <div class="text-3xl mb-3">📊</div>
+          <h3 class="font-bold text-slate-900 mb-2 group-hover:text-sky-700">Core Bookkeeping</h3>
+          <p class="text-sm text-slate-600">Cash book, expense tracker, mileage log, bank reconciliation, and more.</p>
+        </a>
+        <a href="/tax-vat" class="group bg-slate-50 rounded-xl p-6 border border-slate-200 hover:border-sky-300 hover:bg-sky-50 transition-colors">
+          <div class="text-3xl mb-3">🧾</div>
+          <h3 class="font-bold text-slate-900 mb-2 group-hover:text-sky-700">Tax & VAT</h3>
+          <p class="text-sm text-slate-600">VAT return, MTD updates, Self Assessment, CIS statements, and more.</p>
+        </a>
+        <a href="/financial-reports" class="group bg-slate-50 rounded-xl p-6 border border-slate-200 hover:border-sky-300 hover:bg-sky-50 transition-colors">
+          <div class="text-3xl mb-3">📈</div>
+          <h3 class="font-bold text-slate-900 mb-2 group-hover:text-sky-700">Financial Reports</h3>
+          <p class="text-sm text-slate-600">P&L, balance sheet, cash flow forecast, budget vs actual, and more.</p>
+        </a>
+        <a href="/payroll" class="group bg-slate-50 rounded-xl p-6 border border-slate-200 hover:border-sky-300 hover:bg-sky-50 transition-colors">
+          <div class="text-3xl mb-3">💼</div>
+          <h3 class="font-bold text-slate-900 mb-2 group-hover:text-sky-700">Payroll</h3>
+          <p class="text-sm text-slate-600">Timesheets, payslips, PAYE calculator, holiday tracker, and more.</p>
+        </a>
+        <a href="/landlord-property" class="group bg-slate-50 rounded-xl p-6 border border-slate-200 hover:border-sky-300 hover:bg-sky-50 transition-colors">
+          <div class="text-3xl mb-3">🏘️</div>
+          <h3 class="font-bold text-slate-900 mb-2 group-hover:text-sky-700">Landlord & Property</h3>
+          <p class="text-sm text-slate-600">Rent schedule, maintenance log, deposit tracker, notice tracker, and more.</p>
+        </a>
+        <a href="/business-tools" class="group bg-slate-50 rounded-xl p-6 border border-slate-200 hover:border-sky-300 hover:bg-sky-50 transition-colors">
+          <div class="text-3xl mb-3">🛠️</div>
+          <h3 class="font-bold text-slate-900 mb-2 group-hover:text-sky-700">Business Tools</h3>
+          <p class="text-sm text-slate-600">Invoice, quote, PO, delivery note, stock tracker, job tracker, and more.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">Why Open Sheets?</h2>
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="bg-white rounded-xl p-5 border border-slate-200 text-center">
+          <div class="text-3xl mb-2">🇬🇧</div>
+          <h3 class="font-semibold text-slate-900 text-sm mb-1">UK-Focused</h3>
+          <p class="text-xs text-slate-600">HMRC categories, UK tax rates, GBP</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 border border-slate-200 text-center">
+          <div class="text-3xl mb-2">💰</div>
+          <h3 class="font-semibold text-slate-900 text-sm mb-1">100% Free</h3>
+          <p class="text-xs text-slate-600">No paywall, no trial, no credit card</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 border border-slate-200 text-center">
+          <div class="text-3xl mb-2">📥</div>
+          <h3 class="font-semibold text-slate-900 text-sm mb-1">No Signup</h3>
+          <p class="text-xs text-slate-600">Download instantly, no email gate</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 border border-slate-200 text-center">
+          <div class="text-3xl mb-2">✅</div>
+          <h3 class="font-semibold text-slate-900 text-sm mb-1">Compatible</h3>
+          <p class="text-xs text-slate-600">Excel, Google Sheets, LibreOffice</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-sky-700">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Browse All 50+ Templates</h2>
+      <p class="text-sky-100 mb-8 max-w-2xl mx-auto">Find the exact spreadsheet you need. Filter by category, download instantly.</p>
+      <a href="/templates" class="inline-flex items-center justify-center bg-white hover:bg-sky-50 text-sky-700 font-semibold px-8 py-3 rounded-lg transition-colors">
+        View All Templates
+      </a>
+    </div>
+  </section>
+</Layout>
