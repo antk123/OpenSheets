@@ -1,0 +1,74 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'Rental Income Spreadsheet UK — Free Excel Property Income Tracker for Landlords';
+const description = 'Free UK rental income spreadsheet for landlords. Track rent received, expenses, and taxable profit across multiple properties. Works in Excel and Google Sheets.';
+const canonical = '/rental-income-spreadsheet-uk';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: `${siteUrl}${canonical}`,
+};
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      <div class="inline-flex items-center gap-2 bg-amber-100 text-amber-700 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+        Landlord
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-4">
+        Rental Income Spreadsheet UK <span class="text-sky-700">(Free Download)</span>
+      </h1>
+      <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+        Free rental income spreadsheet for UK landlords. Track rent received, expenses, and taxable profit across multiple properties. HMRC-compliant and simple.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Track Property Income Properly</h2>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            HMRC requires landlords to report rental income and expenses on their Self Assessment. A proper spreadsheet makes this straightforward — and ensures you claim every allowable expense.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            Our template handles multiple properties, tracks rent arrears, and calculates taxable profit automatically. It also flags when you might need to register for MTD for Income Tax.
+          </p>
+          <h3 class="text-lg font-semibold text-slate-900 mb-3">What Our Template Includes</h3>
+          <ul class="space-y-2 text-slate-600">
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Multi-property tracking:</strong> Income per property</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Expense categories:</strong> Repairs, insurance, agent fees, etc.</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Taxable profit:</strong> Income minus expenses, auto-calculated</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Mortgage interest:</strong> 20% tax credit calculation</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>MTD flag:</strong> Alerts when income hits £50k threshold</li>
+          </ul>
+        </div>
+        <div class="bg-amber-50 rounded-xl p-6 border border-amber-200">
+          <h3 class="font-bold text-amber-900 mb-4">Get the Rental Tracker</h3>
+          <p class="text-sm text-amber-800 mb-4">Track rental income and expenses across all your properties. Stay HMRC-compliant.</p>
+          <a href="/templates/rent-schedule" class="w-full inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white font-medium px-6 py-3 rounded-lg transition-colors mb-3">
+            View Rental Tracker
+          </a>
+          <p class="text-xs text-amber-600 text-center">Free. No email required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-sky-700">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Download Your Free Rental Tracker</h2>
+      <p class="text-sky-100 mb-8 max-w-2xl mx-auto">Track every property's income and expenses. Know your true rental profit.</p>
+      <a href="/templates/rent-schedule" class="inline-flex items-center justify-center bg-white hover:bg-sky-50 text-sky-700 font-semibold px-8 py-3 rounded-lg transition-colors">
+        Get the Template
+      </a>
+    </div>
+  </section>
+</Layout>

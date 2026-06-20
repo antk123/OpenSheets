@@ -1,0 +1,74 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { siteUrl } from '@/lib/utils';
+
+const title = 'CIS Tax Calculator UK — Free Excel CIS Rebate Calculator for Subcontractors';
+const description = 'Free CIS tax calculator for UK subcontractors. Calculate tax deductions, check if you are due a rebate, and track CIS payments. Works in Excel and Google Sheets.';
+const canonical = '/cis-tax-calculator-uk';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: `${siteUrl}${canonical}`,
+};
+---
+
+<Layout title={`${title} | Open Sheets`} description={description} canonical={canonical} jsonLd={jsonLd}>
+  <section class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+        Tax &amp; VAT
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-4">
+        CIS Tax Calculator UK <span class="text-sky-700">(Free Download)</span>
+      </h1>
+      <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+        Free CIS tax calculator for UK construction subcontractors. Calculate CIS deductions, check if you are due a rebate, and track payments across the tax year.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Are You Owed a CIS Rebate?</h2>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            Under the Construction Industry Scheme (CIS), contractors deduct 20% (registered) or 30% (unregistered) from your payments. But your actual tax liability might be much lower — meaning HMRC owes you money.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            Most CIS subcontractors are due a rebate at year-end. Our calculator shows your total CIS deductions versus your estimated tax bill, so you know what to expect.
+          </p>
+          <h3 class="text-lg font-semibold text-slate-900 mb-3">What Our Calculator Does</h3>
+          <ul class="space-y-2 text-slate-600">
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>CIS tracking:</strong> Record all CIS deductions</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Rebate estimate:</strong> Deductions vs actual tax due</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Gross vs net:</strong> See what you actually earned</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Multiple contractors:</strong> Track deductions per contractor</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><strong>Tax year summary:</strong> Ready for Self Assessment</li>
+          </ul>
+        </div>
+        <div class="bg-emerald-50 rounded-xl p-6 border border-emerald-200">
+          <h3 class="font-bold text-emerald-900 mb-4">Get the CIS Calculator</h3>
+          <p class="text-sm text-emerald-800 mb-4">Track CIS deductions and estimate your rebate. Stop guessing what HMRC owes you.</p>
+          <a href="/templates/cis-deduction" class="w-full inline-flex items-center justify-center bg-sky-700 hover:bg-sky-800 text-white font-medium px-6 py-3 rounded-lg transition-colors mb-3">
+            View CIS Calculator
+          </a>
+          <p class="text-xs text-emerald-600 text-center">Free. No email required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-sky-700">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Download Your Free CIS Calculator</h2>
+      <p class="text-sky-100 mb-8 max-w-2xl mx-auto">Know your CIS rebate before you file. Most subcontractors are owed money.</p>
+      <a href="/templates/cis-deduction" class="inline-flex items-center justify-center bg-white hover:bg-sky-50 text-sky-700 font-semibold px-8 py-3 rounded-lg transition-colors">
+        Get the Template
+      </a>
+    </div>
+  </section>
+</Layout>
